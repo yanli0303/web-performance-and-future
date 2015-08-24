@@ -31,6 +31,11 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+		<style>
+			ul > li { list-style: square; }
+			.reveal table.no-border th, .reveal table.no-border td { border: 0;}
+			.reveal table.align-center th, .reveal table.align-center td { text-align: center; }
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
@@ -41,18 +46,75 @@
 					<h1>Web</h1>
 					<h3>Performance and Future</h3>
 					<p>
-						<small><a href="https://github.com/yanli0303">Yan Li</a> / Aug 2015</small>
+						<small>Yan Li / Aug 2015</small>
 					</p>
 				</section>
 
 				<section>
 					<h3>Hello, I'm Yan</h3>
-					<img width="350" height="535" style="float:left;margin:0 20px 0 0;background:none;box-shadow:none;border:none;" data-src="images/yan-usher-badge-tilt.png" alt="Yan Li Usher Badge"/>
+					<img width="350" height="535" style="float:left;margin:0;background:none;box-shadow:none;border:none;" data-src="images/yan-usher-badge-tilt.png" alt="Yan Li Usher Badge"/>
 					<ul style="float:left;margin-top:150px;">
-						<li>Joined MSTR on 7/7/2008</li>
-						<li>Working on Usher</li>
+						<li>Joined MSTR in July 2008</li>
+						<li>Working on Usher NM</li>
 						<li>Love Web</li>
 					</ul>
+				</section>
+
+				<section>
+					<h3>About</h3>
+					<ul>
+						<li>Web Performance Tuning</li>
+						<li>A little on Security(HTTPS)</li>
+						<li>HTTP/2.0</li>
+					</ul>
+					<small>
+						<p>You'll find my slides duplicate <a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">The Quest to Delight Our Users</a> by <a href="https://www.linkedin.com/in/alvacheung">Alva Cheung</a></p>
+					</small>
+					<p>Hope it helps!</p>
+				</section>
+
+				<section>
+					<section>
+						<h3>YAHOO! Best Practices</h3>
+						<ol>
+							<li>Make Fewer HTTP Requests</li>
+							<li>Use a CDN</li>
+							<li>Add Expires or Cache-Control Header</li>
+							<li>Gzip Components</li>
+							<li>Put Stylesheets at Top</li>
+							<li>Put Scripts at Bottom</li>
+							<li>...</li>
+						</ol>
+						<p><a href="https://developer.yahoo.com/performance/rules.html">https://developer.yahoo.com/performance/rules.html</a></p>
+					</section>
+					<section>
+						<h3>TCP Slow Start</h3>
+						<table class="no-border align-center">
+							<tbody>
+								<tr>
+									<td style="width:35%">
+										<small>How fast should I send packages?</small>
+									</td>
+									<td></td>
+									<td style="width:35%">
+										<small>Ack...ack...ack...ack...ack...</small>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span style="display:block;text-align:center;border:1px solid #fff;border-radius:10px;background-color:#17BECF">Client</span>
+									</td>
+									<td>
+										<small>...slow network...</small>
+									</td>
+									<td>
+										<span style="display:block;border:1px solid #fff;border-radius:10px;background-color:#FF7F0E">Server</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
 				</section>
 
 				<section>
@@ -77,6 +139,14 @@
 						<li>307 temporary redirect</li>
 						<li>308 permanent redirect (RFC 7538)</li>
 					</ul>
+				</section>
+
+				<section>
+					<a href="https://w3c.github.io/resource-hints/">Resource Hints</a>
+				</section>
+
+				<section>
+					<a href="https://wdrl.info/">Web Development Reading List</a>
 				</section>
 
 				<section>
@@ -356,7 +426,7 @@ function linkify( selector ) {
 				<section>
 					<h2>Export to PDF</h2>
 					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="//www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
 				</section>
 
 				<section>
