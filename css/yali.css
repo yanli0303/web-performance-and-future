@@ -1,13 +1,55 @@
-ul > li { list-style: square; }
-.reveal table.no-border th, .reveal table.no-border td { border: 0; }
-.reveal table.align-center th, .reveal table.align-center td { text-align: center; }
-.square { display: block;text-align:center;border:1px solid #fff; }
-.border-round { border-radius: 10px; }
-.border-round-left { border-radius: 10px 0 0 10px; }
-.border-round-right { border-radius: 0 10px 10px 0; }
-.bg-yellow { background-color: #FBB917; }
-.bg-olive { background-color: #808000; }
-.bg-orange { background-color: #FFA500; }
-.bg-blue { background-color: #6698FF; }
-.bg-green { background-color: #41A317; }
-.bg-pink { background-color: #C48793; }
+ul > li {
+  list-style: square;
+}
+.reveal .bordered th, .reveal .bordered td,
+.reveal .bordered tr:last-child td {
+    border: 1px solid #fff;
+}
+.reveal .no-border th, .reveal .no-border td {
+  border: 0;
+}
+.reveal .align-center th, .reveal .align-center td {
+  text-align: center;
+}
+.reveal td,
+.reveal th {
+  vertical-align: middle;
+}
+span.square {
+  display: block;
+}
+.square, tr.progress-bar td {
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: none;
+}
+.border-round {
+  border-radius: 10px;
+}
+.border-round-left, tr.progress-bar td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.border-round-right, tr.progress-bar td:last-child {
+  border-radius: 0 10px 10px 0;
+}
+.reveal .no-border .border-left {
+  border-left: 1px solid #fff;
+}
+.bg-yellow {
+  background-color: #FEC303;
+}
+.bg-olive {
+  background-color: #325D6A;
+}
+.bg-orange {
+  background-color: #E48223;
+}
+.bg-blue {
+  background-color: #1775DD;
+}
+.bg-green {
+  background-color: #A4B623;
+}
+.bg-pink {
+  background-color: #C48793;
+}

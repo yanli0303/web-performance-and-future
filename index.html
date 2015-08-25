@@ -19,6 +19,12 @@
         <!-- Code syntax highlighting -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
 
+        <!-- My Styles -->
+        <link rel="stylesheet" href="css/yali.css">
+
+        <!-- Open any link on this page in a new browser window -->
+        <base target="_blank" />
+
         <!-- Printing and PDF exports -->
         <script>
             var link = document.createElement( 'link' );
@@ -31,48 +37,68 @@
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
-
-        <!-- My Styles -->
-        <link rel="stylesheet" href="css/yali.css">
-
-        <!-- Open any link on this page in a new browser window -->
-        <base target="_blank" />
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
-                <section>
-                    <h1>Web</h1>
-                    <h2>Performance and Future</h2>
-                    <p>Yan (Peter) Li / Aug 2015</p>
-                    <p>&nbsp;</p>
-                    <p>
-                        <small>View it on <a href="http://chn-yali1/velocity">http://chn-yali1/velocity</a></small><br/>
-                        <small>Or download PDF <a href="http://chn-yali1/velocity/pdf">http://chn-yali1/velocity/pdf</a></small>
-                    </p>
+                <section id="welcome">
+                    <section>
+                        <h1>Web</h1>
+                        <h2>Performance and Future</h2>
+                        <p>
+                            <small>Yan (Peter) Li / Aug 2015</small>
+                        </p>
+                    </section>
+                    <section>
+                        <img data-src="images/qr-online.png" alt="http://10.197.38.188/velocity" />
+                        <p>View online</p>
+                    </section>
+                    <section>
+                        <img data-src="images/qr-pdf.png" alt="http://10.197.38.188/velocity/pdf" />
+                        <p>Download PDF</p>
+                    </section>
                 </section>
 
-                <section>
-                    <h2>Hello, I'm Yan</h2>
-                    <img width="350" height="535" style="float:left;margin:0;background:none;box-shadow:none;border:none;" data-src="images/yan-usher-badge-tilt.png" alt="Yan Li Usher Badge"/>
-                    <ul style="float:left;margin-top:150px;">
-                        <li>Joined MSTR in July 2008</li>
-                        <li>Working on Usher NM</li>
-                        <li class="fragment highlight-blue">Love Web</li>
-                    </ul>
+                <section id="intro">
+                    <section>
+                        <h2>Hello, I'm Yan</h2>
+                        <img width="350" height="535" style="float:left;margin:0;background:none;box-shadow:none;border:none;" data-src="images/yan-usher-badge-tilt.png" alt="Yan Li Usher Badge"/>
+                        <ul style="float:left;margin-top:150px;">
+                            <li>Joined MSTR in July 2008</li>
+                            <li>Working on Usher NM</li>
+                            <li>Love Web</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Topic</h2>
+                        <ul>
+                            <li class="fragment">Web Performance Tuning</li>
+                            <li class="fragment">A little on Security (HTTPS)</li>
+                            <li class="fragment">HTTP/2.0</li>
+                        </ul>
+                        <p class="fragment">Hope it helps!</p>
+                    </section>
+
+                    <section>
+                        <h2>Do you like web?</h2>
+                        <table class="no-border align-center">
+                            <tbody>
+                                <tr>
+                                    <td style="width:45%"><span class="square border-round bg-blue">Frontend</span></td>
+                                    <td>+</td>
+                                    <td style="width:45%"><span class="square border-round bg-green">Backend</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
                 </section>
 
-                <section>
-                    <h2>Topic</h2>
-                    <ul>
-                        <li class="fragment">Web Performance Tuning</li>
-                        <li class="fragment">A little on Security (HTTPS)</li>
-                        <li class="fragment">HTTP/2.0</li>
-                    </ul>
-                    <p class="fragment">Hope it helps!</p>
-                </section>
-
-                <section>
+                <section id="latency">
+                    <section>
+                        <h2>Faster sites</h2>
+                        <p>What rules/best practices do you know?</p>
+                    </section>
                     <section>
                         <h2>YAHOO! Best Practices</h2>
                         <ol>
@@ -86,6 +112,207 @@
                         </ol>
                         <p><a href="https://developer.yahoo.com/performance/rules.html">https://developer.yahoo.com/performance/rules.html</a></p>
                     </section>
+                    <section>
+                        <h2>YAHOO! Best Practices</h2>
+                        <table class="no-border">
+                            <tbody>
+                                <tr class="progress-bar">
+                                    <td class="bg-yellow">redirections</td>
+                                    <td class="bg-olive">DNS</td>
+                                    <td class="bg-orange">TCP</td>
+                                    <td class="bg-blue">request<br/>response</td>
+                                    <td class="border-round-right bg-green">rendering</td>
+                                </tr>
+                                <tr class="fragment">
+                                    <td class="border-left">minimize<br/>redirection</td>
+                                    <td class="border-left">reduce<br/>lookups</td>
+                                    <td class="border-left">image<br/>spriting<br/><br/>minify</td>
+                                    <td class="border-left">domain<br/>sharding<br/><br/>caching</td>
+                                    <td class="border-left">css on top<br/><br/>js at bottom</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section>
+                        <h2>Minimize Redirections</h2>
+                        <p>HTTP/1.1 defines several status codes for redirection:</p>
+                        <ul style="margin-left:50px;">
+                            <li>300 multiple choices (e.g. offer different languages)</li>
+                            <li>301 moved permanently</li>
+                            <li>302 found</li>
+                            <li>303 see other (forces a GET)</li>
+                            <li>307 temporary redirect</li>
+                            <li>308 permanent redirect (RFC 7538)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>DNS lookup</h2>
+                        <table class="bordered align-center">
+                            <thead>
+                                <tr>
+                                    <th style="width:40%">www.google.com</th>
+                                    <th colspan="2"><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODgyNzcwMw==&mid=201837080&idx=1&sn=b2a152b84df1c7dbd294ea66037cf262&scene=2&from=timeline&isappinstalled=0#rd">HttpDNS</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2">
+                                        <ol>
+                                            <li class="fragment highlight-blue">Intranet DNS</li>
+                                            <li><em class="fragment highlight-red">ISP</em> DNS</li>
+                                            <li><em class="fragment highlight-blue">Root</em> name server</li>
+                                            <li><em class="fragment highlight-blue">.com</em> name server</li>
+                                            <li><em class="fragment highlight-blue">google.com</em> name server</li>
+                                        </ol>
+                                    </td>
+                                    <td>1st request</td>
+                                    <td class="fragment highlight-blue">Http gets<br/>Nearest server IP</td>
+                                </tr>
+                                <tr>
+                                    <td>Subsequent</td>
+                                    <td class="fragment highlight-blue">Nearest server IP</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section>
+                        <h2>TCP 3-way handshake</h2>
+                        <table class="no-border align-center">
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3" class="square border-round bg-olive">Host A</td>
+                                    <td>-----SYN-----&gt;</td>
+                                    <td rowspan="3" class="square border-round bg-green">Host B</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;---SYN ACK---</td>
+                                </tr>
+                                <tr>
+                                    <td>-----ACK-----&gt;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="fragment" style="margin-top:2em">
+                            <small>
+                                See <a href="http://www.inetdaemon.com/tutorials/internet/tcp/3-way_handshake.shtml">TCP 3-Way Handshake (SYN,SYN-ACK,ACK)</a>
+                            </small>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>TCP Slow Start</h2>
+                        <table class="fragment no-border align-center">
+                            <tbody>
+                                <tr>
+                                    <td style="width:40%">
+                                        <small class="fragment">How fast should I send segments?</small>
+                                    </td>
+                                    <td></td>
+                                    <td style="width:40%">
+                                        <small class="fragment">Ack...ack...ack...ack...ack...</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="square border-round bg-blue">Client</span>
+                                    </td>
+                                    <td>
+                                        <small>...routers...</small>
+                                    </td>
+                                    <td>
+                                        <span class="square border-round bg-yellow">Server</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>
+                            <a class="fragment" href="http://www.cdnplanet.com/blog/tune-tcp-initcwnd-for-optimum-performance/">Tuning initcwnd for optimum performance</a><br/>
+                            <a class="fragment" href="http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/">Linux TCP/IP tuning for scalability</a>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>Domain Sharding</h2>
+                        <table class="fragment no-border align-center">
+                            <tbody>
+                                <tr>
+                                    <td style="width:30%" class="square border-round bg-blue">Browser</td>
+                                    <td>
+                                        <small class="fragment current-visible">simultaneous connections</small>
+                                        <small class="fragment current-visible">2 simultaneous connections</small>
+                                        <small class="fragment current-visible">6-8 simultaneous connections</small>
+                                    </td>
+                                    <td style="width:30%" class="square border-round bg-yellow">Domain</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin-top:2em" class="fragment">
+                            <small>
+                                <a href="http://www.mobify.com/blog/domain-sharding-bad-news-mobile-performance/">http://www.mobify.com/blog/domain-sharding-bad-news-mobile-performance/</a>
+                            </small>
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>What</h2>
+                </section>
+
+                <section>
+                    <h2>Data rate and latency</h2>
+                    <table style="font-size:90%" class="bordered align-center">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Desktop</th>
+                                <th colspan="3">Mobile</th>
+                            </tr>
+                            <tr>
+                                <th>Data rate</th>
+                                <th>Latency</th>
+                                <th>Gen</th>
+                                <th>Data rate</th>
+                                <th>Latency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3">10Mbps<br/>100Mbps<br/>1Gbps</td>
+                                <td rowspan="3">65-145 ms</td>
+                                <td>2G</td>
+                                <td>100-400Kbps</td>
+                                <td>300-1000ms</td>
+                            </tr>
+                            <tr>
+                                <td>3G</td>
+                                <td>0.5-1Mbps</td>
+                                <td>100-500ms</td>
+                            </tr>
+                            <tr>
+                                <td>4G</td>
+                                <td>1-50Mbps</td>
+                                <td>&lt;100ms</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        <small>
+                            <a href="http://www.webperformancetoday.com/2012/04/02/mobile-versus-desktop-latency/">http://www.webperformancetoday.com/2012/04/02/mobile-versus-desktop-latency/</a>
+                            <br/>
+                            <a href="http://chimera.labs.oreilly.com/books/1230000000545/ch07.html#_brief_history_of_the_g_8217_s">http://chimera.labs.oreilly.com/books/1230000000545/ch07.html#_brief_history_of_the_g_8217_s</a>
+                        </small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Our web page/code base is getting bigger and bigger...</h2>
+                </section>
+
+                <section>
+
+
+
                     <section>
                         <h2>Those are all about</h2>
                         <table>
@@ -107,33 +334,7 @@
                             </tbody>
                         </table>
                     </section>
-                    <section>
-                        <h2>TCP Slow Start</h2>
-                        <table class="no-border align-center">
-                            <tbody>
-                                <tr>
-                                    <td style="width:40%">
-                                        <small class="fragment">How fast should I send segments?</small>
-                                    </td>
-                                    <td></td>
-                                    <td style="width:40%">
-                                        <small class="fragment">Ack...ack...ack...ack...ack...</small>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="square border-round bg-blue">Client</span>
-                                    </td>
-                                    <td>
-                                        <small>...</small>
-                                    </td>
-                                    <td>
-                                        <span class="square border-round bg-yellow">Server</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </section>
+
 
                 </section>
 
