@@ -49,12 +49,14 @@
                             <small>Yan (Peter) Li / Aug 2015</small>
                         </p>
                     </section>
-                    <section>
+                    <section data-transition="none">
                         <img data-src="images/qr-online.png" alt="http://10.197.38.188/velocity" />
+                        <p><a href="http://10.197.38.188/velocity">http://10.197.38.188/velocity</a></p>
                         <p>View online</p>
                     </section>
-                    <section>
+                    <section data-transition="fade">
                         <img data-src="images/qr-pdf.png" alt="http://10.197.38.188/velocity/pdf" />
+                        <p><a href="http://10.197.38.188/velocity/pdf">http://10.197.38.188/velocity/pdf</a></p>
                         <p>Download PDF</p>
                     </section>
                 </section>
@@ -74,14 +76,14 @@
                         <h2>Topic</h2>
                         <ul>
                             <li class="fragment">Web Performance Tuning</li>
-                            <li class="fragment">A little on Security (HTTPS)</li>
                             <li class="fragment">HTTP/2.0</li>
+                            <li class="fragment">A little on Security (HTTPS)</li>
                         </ul>
                         <p class="fragment">Hope it helps!</p>
                     </section>
 
                     <section>
-                        <h2>Do you like web?</h2>
+                        <h2>Do you know web?</h2>
                         <table class="no-border align-center">
                             <tbody>
                                 <tr>
@@ -92,14 +94,146 @@
                             </tbody>
                         </table>
                     </section>
+
+                    <section id="speed">
+                        <h2>Network speed</h2>
+                        <table style="font-size:90%" class="bordered align-center">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Desktop</th>
+                                    <th colspan="3">Mobile</th>
+                                </tr>
+                                <tr>
+                                    <th>Data rate</th>
+                                    <th>Latency</th>
+                                    <th>Gen</th>
+                                    <th>Data rate</th>
+                                    <th>Latency</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">10Mbps<br/>100Mbps<br/>1Gbps</td>
+                                    <td rowspan="3">65-145 ms</td>
+                                    <td>2G</td>
+                                    <td>100-400Kbps</td>
+                                    <td>300-1000ms</td>
+                                </tr>
+                                <tr>
+                                    <td>3G</td>
+                                    <td>0.5-1Mbps</td>
+                                    <td>100-500ms</td>
+                                </tr>
+                                <tr>
+                                    <td>4G</td>
+                                    <td>1-50Mbps</td>
+                                    <td>&lt;100ms</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>
+                            <small>
+                                <a href="http://www.webperformancetoday.com/2012/04/02/mobile-versus-desktop-latency/">http://www.webperformancetoday.com/2012/04/02/mobile-versus-desktop-latency/</a>
+                                <br/>
+                                <a href="http://chimera.labs.oreilly.com/books/1230000000545/ch07.html#_brief_history_of_the_g_8217_s">http://chimera.labs.oreilly.com/books/1230000000545/ch07.html#_brief_history_of_the_g_8217_s</a>
+                            </small>
+                        </p>
+                    </section>
+                    <section id="page-size-2010">
+                        <h2>Page size</h2>
+                        <p>Google (2010): Average page is 320K and contains 44 objects</p>
+                        <table class="bordered align-center">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Top Sites</th>
+                                    <th>All Sites</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pages</td>
+                                    <td>380 million</td>
+                                    <td>4.2 billion</td>
+                                </tr>
+                                <tr>
+                                    <td>Resources</td>
+                                    <td>42.14</td>
+                                    <td>43.91</td>
+                                </tr>
+                                <tr>
+                                    <td>GETs</td>
+                                    <td>42.63</td>
+                                    <td>44.56</td>
+                                </tr>
+                                <tr>
+                                    <td>Hosts</td>
+                                    <td>8.39</td>
+                                    <td>7.01</td>
+                                </tr>
+                                <tr>
+                                    <td>Resources per host</td>
+                                    <td>5.02</td>
+                                    <td>6.26</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>
+                            <small>
+                                <a href="http://www.webperformancetoday.com/2011/06/06/fewer-objects-web-page-test/">http://www.webperformancetoday.com/2011/06/06/fewer-objects-web-page-test/</a>
+                            </small>
+                        </p>
+                    </section>
+                    <section id="page-size-2015">
+                        <h2>Page size</h2>
+                        <p style="margin-top:2em">
+                            <small>
+                                <a href="http://httparchive.org/interesting.php">http://httparchive.org/interesting.php</a>
+                            </small>
+                        </p>
+                        <table>
+                            <thead>
+                                <th>Year</th>
+                                <th>Avg. Size</th>
+                                <th>Growth</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>12/15/2011</td>
+                                    <td>965 KB</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>2012</td>
+                                    <td>30%</td>
+                                </tr>
+                                <tr>
+                                    <td>2013</td>
+                                    <td>32%</td>
+                                </tr>
+                                <tr>
+                                    <td>07/2014</td>
+                                    <td>15% (1829 KB)</td>
+                                </tr>
+                                <tr class="fragment">
+                                    <td>08/15/2015</td>
+                                    <td>19% (2169 KB)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </section>
                 </section>
 
                 <section id="latency">
-                    <section>
+                    <section id="what-do-you-know">
                         <h2>Faster sites</h2>
                         <p>What rules/best practices do you know?</p>
                     </section>
-                    <section>
+                    <section id="yahoo">
                         <h2>YAHOO! Best Practices</h2>
                         <ol>
                             <li>Make Fewer HTTP Requests</li>
@@ -113,6 +247,10 @@
                         <p><a href="https://developer.yahoo.com/performance/rules.html">https://developer.yahoo.com/performance/rules.html</a></p>
                     </section>
                     <section>
+                        <h2>Google PageSpeed insights</h2>
+                        <p><a href="https://developers.google.com/speed/pagespeed/insights/">https://developers.google.com/speed/pagespeed/insights/</a></p>
+                    </section>
+                    <section id="yahoo-timeline">
                         <h2>YAHOO! Best Practices</h2>
                         <table class="no-border">
                             <tbody>
@@ -133,7 +271,27 @@
                             </tbody>
                         </table>
                     </section>
+                </section>
 
+                <section id="redirect">
+                    <section>
+                        <h2>Redirections</h2>
+                        <table class="no-border">
+                            <tbody>
+                                <tr class="progress-bar">
+                                    <td class="bg-yellow">redirections</td>
+                                    <td class="bg-olive">DNS</td>
+                                    <td class="bg-orange">TCP</td>
+                                    <td class="bg-blue">request<br/>response</td>
+                                    <td class="border-round-right bg-green">rendering</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-left">minimize<br/>redirection</td>
+                                    <td class="border-left" colspan="4"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
                     <section>
                         <h2>Minimize Redirections</h2>
                         <p>HTTP/1.1 defines several status codes for redirection:</p>
@@ -146,7 +304,28 @@
                             <li>308 permanent redirect (RFC 7538)</li>
                         </ul>
                     </section>
+                </section>
 
+                <section id="httpdns">
+                    <section>
+                        <h2>DNS</h2>
+                        <table class="no-border">
+                            <tbody>
+                                <tr class="progress-bar">
+                                    <td class="bg-yellow">redirections</td>
+                                    <td class="bg-olive">DNS</td>
+                                    <td class="bg-orange">TCP</td>
+                                    <td class="bg-blue">request<br/>response</td>
+                                    <td class="border-round-right bg-green">rendering</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="border-left">reduce<br/>lookups</td>
+                                    <td class="border-left" colspan="3"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
                     <section>
                         <h2>DNS lookup</h2>
                         <table class="bordered align-center">
@@ -177,10 +356,32 @@
                             </tbody>
                         </table>
                     </section>
+                </section>
 
+                <section id="tcp">
                     <section>
+                        <h2>TCP</h2>
+                        <table class="no-border">
+                            <tbody>
+                                <tr class="progress-bar">
+                                    <td class="bg-yellow">redirections</td>
+                                    <td class="bg-olive">DNS</td>
+                                    <td class="bg-orange">TCP</td>
+                                    <td class="bg-blue">request<br/>response</td>
+                                    <td class="border-round-right bg-green">rendering</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="border-left">image<br/>spriting<br/><br/>minify</td>
+                                    <td class="border-left" colspan="2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section id="tcp-handshake">
                         <h2>TCP 3-way handshake</h2>
-                        <table class="no-border align-center">
+                        <table class="fragment no-border align-center">
                             <tbody>
                                 <tr>
                                     <td rowspan="3" class="square border-round bg-olive">Host A</td>
@@ -201,7 +402,7 @@
                             </small>
                         </p>
                     </section>
-                    <section>
+                    <section id="tcp-slow-start">
                         <h2>TCP Slow Start</h2>
                         <table class="fragment no-border align-center">
                             <tbody>
@@ -232,17 +433,40 @@
                             <a class="fragment" href="http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/">Linux TCP/IP tuning for scalability</a>
                         </p>
                     </section>
+                </section>
 
+                <section id="req-resp">
                     <section>
+                        <h2>Request &amp; Response</h2>
+                        <table class="no-border">
+                            <tbody>
+                                <tr class="progress-bar">
+                                    <td class="bg-yellow">redirections</td>
+                                    <td class="bg-olive">DNS</td>
+                                    <td class="bg-orange">TCP</td>
+                                    <td class="bg-blue">request<br/>response</td>
+                                    <td class="border-round-right bg-green">rendering</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="border-left">domain<br/>sharding<br/><br/>caching</td>
+                                    <td class="border-left"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section id="domain-sharding">
                         <h2>Domain Sharding</h2>
                         <table class="fragment no-border align-center">
                             <tbody>
                                 <tr>
                                     <td style="width:30%" class="square border-round bg-blue">Browser</td>
                                     <td>
-                                        <small class="fragment current-visible">simultaneous connections</small>
-                                        <small class="fragment current-visible">2 simultaneous connections</small>
-                                        <small class="fragment current-visible">6-8 simultaneous connections</small>
+                                        <small class="fragment">simultaneous connections</small>
+                                        <small class="fragment">2(1999) simultaneous connections</small>
+                                        <small class="fragment">6-8(2010) simultaneous connections</small>
                                     </td>
                                     <td style="width:30%" class="square border-round bg-yellow">Domain</td>
                                 </tr>
@@ -256,57 +480,38 @@
                     </section>
                 </section>
 
-                <section>
-                    <h2>What</h2>
-                </section>
+                <section id="rendering">
+                    <section>
+                        <h2>Rendering</h2>
+                        <table class="no-border">
+                            <tbody>
+                                <tr class="progress-bar">
+                                    <td class="bg-yellow">redirections</td>
+                                    <td class="bg-olive">DNS</td>
+                                    <td class="bg-orange">TCP</td>
+                                    <td class="bg-blue">request<br/>response</td>
+                                    <td class="border-round-right bg-green">rendering</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="border-left">css on top<br/><br/>js at bottom</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section id="inline-critical">
+                        <h2>Inline critical resources</h2>
+                        <img data-src="images/inline-critical-resources.png" alt="Inline Critical Resources" />
+                        <p class="fragment"></p>
+                        <p class="fragment"></p>
+                    </section>
 
-                <section>
-                    <h2>Data rate and latency</h2>
-                    <table style="font-size:90%" class="bordered align-center">
-                        <thead>
-                            <tr>
-                                <th colspan="2">Desktop</th>
-                                <th colspan="3">Mobile</th>
-                            </tr>
-                            <tr>
-                                <th>Data rate</th>
-                                <th>Latency</th>
-                                <th>Gen</th>
-                                <th>Data rate</th>
-                                <th>Latency</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan="3">10Mbps<br/>100Mbps<br/>1Gbps</td>
-                                <td rowspan="3">65-145 ms</td>
-                                <td>2G</td>
-                                <td>100-400Kbps</td>
-                                <td>300-1000ms</td>
-                            </tr>
-                            <tr>
-                                <td>3G</td>
-                                <td>0.5-1Mbps</td>
-                                <td>100-500ms</td>
-                            </tr>
-                            <tr>
-                                <td>4G</td>
-                                <td>1-50Mbps</td>
-                                <td>&lt;100ms</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>
-                        <small>
-                            <a href="http://www.webperformancetoday.com/2012/04/02/mobile-versus-desktop-latency/">http://www.webperformancetoday.com/2012/04/02/mobile-versus-desktop-latency/</a>
-                            <br/>
-                            <a href="http://chimera.labs.oreilly.com/books/1230000000545/ch07.html#_brief_history_of_the_g_8217_s">http://chimera.labs.oreilly.com/books/1230000000545/ch07.html#_brief_history_of_the_g_8217_s</a>
-                        </small>
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Our web page/code base is getting bigger and bigger...</h2>
+                    <section id="async-non-critical">
+                        <h2>Make non-critical asynchronous</h2>
+                    </section>
                 </section>
 
                 <section>
