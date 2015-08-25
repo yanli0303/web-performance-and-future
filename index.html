@@ -42,19 +42,19 @@
         <div class="reveal">
             <div class="slides">
                 <section id="welcome">
-                    <section>
+                    <section id="landing">
                         <h1>Web</h1>
                         <h2>Performance and Future</h2>
                         <p>
                             <small>Yan (Peter) Li / Aug 2015</small>
                         </p>
                     </section>
-                    <section data-transition="none">
+                    <section id="qr-online" data-transition="none">
                         <img data-src="images/qr-online.png" alt="http://10.197.38.188/velocity" />
                         <p><a href="http://10.197.38.188/velocity">http://10.197.38.188/velocity</a></p>
                         <p>View online</p>
                     </section>
-                    <section data-transition="fade">
+                    <section id="qr-pdf" data-transition="fade">
                         <img data-src="images/qr-pdf.png" alt="http://10.197.38.188/velocity/pdf" />
                         <p><a href="http://10.197.38.188/velocity/pdf">http://10.197.38.188/velocity/pdf</a></p>
                         <p>Download PDF</p>
@@ -62,7 +62,7 @@
                 </section>
 
                 <section id="intro">
-                    <section>
+                    <section id="whoami">
                         <h2>Hello, I'm Yan</h2>
                         <img width="350" height="535" style="float:left;margin:0;background:none;box-shadow:none;border:none;" data-src="images/yan-usher-badge-tilt.png" alt="Yan Li Usher Badge"/>
                         <ul style="float:left;margin-top:150px;">
@@ -72,7 +72,7 @@
                         </ul>
                     </section>
 
-                    <section>
+                    <section id="agenda">
                         <h2>Topic</h2>
                         <ul>
                             <li class="fragment">Web Performance Tuning</li>
@@ -82,7 +82,7 @@
                         <p class="fragment">Hope it helps!</p>
                     </section>
 
-                    <section>
+                    <section id="do-you-know-web">
                         <h2>Do you know web?</h2>
                         <table class="no-border align-center">
                             <tbody>
@@ -93,6 +93,51 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </section>
+
+                    <section id="page-size">
+                        <h2>Page Size (top 1000)</h2>
+                        <p><a href="http://httparchive.org/interesting.php">http://httparchive.org/interesting.php</a></p>
+                        <table>
+                            <thead>
+                                <th>Year</th>
+                                <th>Avg. Size</th>
+                                <th>Growth</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12/28/2010</td>
+                                    <td>651 KB</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>12/15/2011</td>
+                                    <td>810 KB</td>
+                                    <td>24%</td>
+                                </tr>
+                                <tr>
+                                    <td>12/15/2012</td>
+                                    <td>1163 KB</td>
+                                    <td>44%</td>
+                                </tr>
+                                <tr>
+                                    <td>12/15/2013</td>
+                                    <td>1607 KB</td>
+                                    <td>38%</td>
+                                </tr>
+                                <tr>
+                                    <td>12/15/2014</td>
+                                    <td>1834 KB</td>
+                                    <td>14%</td>
+                                </tr>
+                                <tr class="fragment">
+                                    <td>08/15/2015</td>
+                                    <td>2008 KB</td>
+                                    <td>9%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </section>
 
                     <section id="speed">
@@ -139,98 +184,11 @@
                             </small>
                         </p>
                     </section>
-                    <section id="page-size-2010">
-                        <h2>Page size</h2>
-                        <p>Google (2010): Average page is 320K and contains 44 objects</p>
-                        <table class="bordered align-center">
-                            <thead>
-                                <tr>
-                                    <th>Metric</th>
-                                    <th>Top Sites</th>
-                                    <th>All Sites</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Pages</td>
-                                    <td>380 million</td>
-                                    <td>4.2 billion</td>
-                                </tr>
-                                <tr>
-                                    <td>Resources</td>
-                                    <td>42.14</td>
-                                    <td>43.91</td>
-                                </tr>
-                                <tr>
-                                    <td>GETs</td>
-                                    <td>42.63</td>
-                                    <td>44.56</td>
-                                </tr>
-                                <tr>
-                                    <td>Hosts</td>
-                                    <td>8.39</td>
-                                    <td>7.01</td>
-                                </tr>
-                                <tr>
-                                    <td>Resources per host</td>
-                                    <td>5.02</td>
-                                    <td>6.26</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>
-                            <small>
-                                <a href="http://www.webperformancetoday.com/2011/06/06/fewer-objects-web-page-test/">http://www.webperformancetoday.com/2011/06/06/fewer-objects-web-page-test/</a>
-                            </small>
-                        </p>
-                    </section>
-                    <section id="page-size-2015">
-                        <h2>Page size</h2>
-                        <p style="margin-top:2em">
-                            <small>
-                                <a href="http://httparchive.org/interesting.php">http://httparchive.org/interesting.php</a>
-                            </small>
-                        </p>
-                        <table>
-                            <thead>
-                                <th>Year</th>
-                                <th>Avg. Size</th>
-                                <th>Growth</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>12/15/2011</td>
-                                    <td>965 KB</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>2012</td>
-                                    <td>30%</td>
-                                </tr>
-                                <tr>
-                                    <td>2013</td>
-                                    <td>32%</td>
-                                </tr>
-                                <tr>
-                                    <td>07/2014</td>
-                                    <td>15% (1829 KB)</td>
-                                </tr>
-                                <tr class="fragment">
-                                    <td>08/15/2015</td>
-                                    <td>19% (2169 KB)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </section>
                 </section>
 
                 <section id="latency">
-                    <section id="what-do-you-know">
-                        <h2>Faster sites</h2>
+                    <section>
+                        <h2>Faster web sites</h2>
                         <p>What rules/best practices do you know?</p>
                     </section>
                     <section id="yahoo">
@@ -246,12 +204,13 @@
                         </ol>
                         <p><a href="https://developer.yahoo.com/performance/rules.html">https://developer.yahoo.com/performance/rules.html</a></p>
                     </section>
-                    <section>
+                    <section id="google-page-speed">
                         <h2>Google PageSpeed insights</h2>
                         <p><a href="https://developers.google.com/speed/pagespeed/insights/">https://developers.google.com/speed/pagespeed/insights/</a></p>
+                        <!--<p><a href="https://developers.google.com/speed/pagespeed/">https://developers.google.com/speed/pagespeed/</a></p>-->
                     </section>
-                    <section id="yahoo-timeline">
-                        <h2>YAHOO! Best Practices</h2>
+                    <section id="timeline">
+                        <h2>Page load timeline</h2>
                         <table class="no-border">
                             <tbody>
                                 <tr class="progress-bar">
@@ -505,66 +464,29 @@
                     <section id="inline-critical">
                         <h2>Inline critical resources</h2>
                         <img data-src="images/inline-critical-resources.png" alt="Inline Critical Resources" />
-                        <p class="fragment"></p>
-                        <p class="fragment"></p>
+                        <p class="fragment">
+                            <small>
+                                <a href="http://www.smashingmagazine.com/2015/08/understanding-critical-css/">http://www.smashingmagazine.com/2015/08/understanding-critical-css/</a>
+                            </small>
+                        </p>
                     </section>
-
                     <section id="async-non-critical">
-                        <h2>Make non-critical asynchronous</h2>
+                        <p>Alva Cheung</p>
+                        <blockquote style="width:80%">&ldquo;Load non-critical features asynchronously&rdquo;</blockquote>
                     </section>
                 </section>
 
-                <section>
-
-
-
+                <section id="http2">
                     <section>
-                        <h2>Those are all about</h2>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <span class="square round-left"></span>
-                                    </td>
-                                    <td>
-                                        <span class="square"></span>
-                                    </td>
-                                    <td>
-                                        <span class="square"></span>
-                                    </td>
-                                    <td>
-                                        <span class="square"></span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </section>
-
-
-                </section>
-
-                <section>
-                    <section>
-                        <h2>After user typed the URL...</h2>
-                        <img style="margin:0;background:none;box-shadow:none;border:none;" data-src="images/user-typed-url.png" alt="User typed the URL and hitted ENTER key"/>
+                        <h2>Wecome HTTP/2</h2>
+                        <img data-src="images/http2-chrome.png" alt="HTTP2 Chrome net-internals" />
                     </section>
                     <section>
-                        <h2>After user typed the URL...</h2>
-                        <img alt="phases of HTTP request and response"/>
+                        <h2>Mulplexing in HTTP/2</h2>
                     </section>
-                </section>
-
-                <section>
-                    <h2>Redirections</h2>
-                    <p>HTTP/1.1 defines several status codes for redirection:</p>
-                    <ul style="margin-left:50px;">
-                        <li>300 multiple choices (e.g. offer different languages)</li>
-                        <li>301 moved permanently</li>
-                        <li>302 found</li>
-                        <li>303 see other (forces a GET)</li>
-                        <li>307 temporary redirect</li>
-                        <li>308 permanent redirect (RFC 7538)</li>
-                    </ul>
+                    <section>
+                        <h2>Server push in HTTP/2</h2>
+                    </section>
                 </section>
 
                 <section>

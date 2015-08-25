@@ -1,6 +1,12 @@
 ul > li {
   list-style: square;
 }
+.reveal section img {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+}
 .reveal .bordered th, .reveal .bordered td,
 .reveal .bordered tr:last-child td {
     border: 1px solid #fff;
