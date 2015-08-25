@@ -1,511 +1,247 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>Web - Performance and Future</title>
+        <title>Web - Performance and Future</title>
 
-		<meta name="description" content="Web performance tuning with HTTP/1; and the future of the web - HTTP/2">
-		<meta name="author" content="Yan Li">
+        <meta name="description" content="Web performance tuning with HTTP/1; and the future of the web - HTTP/2">
+        <meta name="author" content="Yan Li">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-		<style>
-			ul > li { list-style: square; }
-			.reveal table.no-border th, .reveal table.no-border td { border: 0;}
-			.reveal table.align-center th, .reveal table.align-center td { text-align: center; }
-		</style>
-	</head>
-	<body>
-		<div class="reveal">
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Web</h1>
-					<h3>Performance and Future</h3>
-					<p>
-						<small>Yan Li / Aug 2015</small>
-					</p>
-				</section>
+        <!-- My Styles -->
+        <link rel="stylesheet" href="css/yali.css">
 
-				<section>
-					<h3>Hello, I'm Yan</h3>
-					<img width="350" height="535" style="float:left;margin:0;background:none;box-shadow:none;border:none;" data-src="images/yan-usher-badge-tilt.png" alt="Yan Li Usher Badge"/>
-					<ul style="float:left;margin-top:150px;">
-						<li>Joined MSTR in July 2008</li>
-						<li>Working on Usher NM</li>
-						<li>Love Web</li>
-					</ul>
-				</section>
+        <!-- Open any link on this page in a new browser window -->
+        <base target="_blank" />
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Web</h1>
+                    <h2>Performance and Future</h2>
+                    <p>Yan (Peter) Li / Aug 2015</p>
+                    <p>&nbsp;</p>
+                    <p>
+                        <small>View it on <a href="http://chn-yali1/velocity">http://chn-yali1/velocity</a></small><br/>
+                        <small>Or download PDF <a href="http://chn-yali1/velocity/pdf">http://chn-yali1/velocity/pdf</a></small>
+                    </p>
+                </section>
 
-				<section>
-					<h3>About</h3>
-					<ul>
-						<li>Web Performance Tuning</li>
-						<li>A little on Security(HTTPS)</li>
-						<li>HTTP/2.0</li>
-					</ul>
-					<small>
-						<p>You'll find my slides duplicate <a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">The Quest to Delight Our Users</a> by <a href="https://www.linkedin.com/in/alvacheung">Alva Cheung</a></p>
-					</small>
-					<p>Hope it helps!</p>
-				</section>
+                <section>
+                    <h2>Hello, I'm Yan</h2>
+                    <img width="350" height="535" style="float:left;margin:0;background:none;box-shadow:none;border:none;" data-src="images/yan-usher-badge-tilt.png" alt="Yan Li Usher Badge"/>
+                    <ul style="float:left;margin-top:150px;">
+                        <li>Joined MSTR in July 2008</li>
+                        <li>Working on Usher NM</li>
+                        <li class="fragment highlight-blue">Love Web</li>
+                    </ul>
+                </section>
 
-				<section>
-					<section>
-						<h3>YAHOO! Best Practices</h3>
-						<ol>
-							<li>Make Fewer HTTP Requests</li>
-							<li>Use a CDN</li>
-							<li>Add Expires or Cache-Control Header</li>
-							<li>Gzip Components</li>
-							<li>Put Stylesheets at Top</li>
-							<li>Put Scripts at Bottom</li>
-							<li>...</li>
-						</ol>
-						<p><a href="https://developer.yahoo.com/performance/rules.html">https://developer.yahoo.com/performance/rules.html</a></p>
-					</section>
-					<section>
-						<h3>TCP Slow Start</h3>
-						<table class="no-border align-center">
-							<tbody>
-								<tr>
-									<td style="width:35%">
-										<small>How fast should I send packages?</small>
-									</td>
-									<td></td>
-									<td style="width:35%">
-										<small>Ack...ack...ack...ack...ack...</small>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<span style="display:block;text-align:center;border:1px solid #fff;border-radius:10px;background-color:#17BECF">Client</span>
-									</td>
-									<td>
-										<small>...slow network...</small>
-									</td>
-									<td>
-										<span style="display:block;border:1px solid #fff;border-radius:10px;background-color:#FF7F0E">Server</span>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</section>
+                <section>
+                    <h2>Topic</h2>
+                    <ul>
+                        <li class="fragment">Web Performance Tuning</li>
+                        <li class="fragment">A little on Security (HTTPS)</li>
+                        <li class="fragment">HTTP/2.0</li>
+                    </ul>
+                    <p class="fragment">Hope it helps!</p>
+                </section>
 
-				</section>
+                <section>
+                    <section>
+                        <h2>YAHOO! Best Practices</h2>
+                        <ol>
+                            <li>Make Fewer HTTP Requests</li>
+                            <li>Use a CDN</li>
+                            <li>Add Expires or Cache-Control Header</li>
+                            <li>Gzip Components</li>
+                            <li>Put Stylesheets at Top</li>
+                            <li>Put Scripts at Bottom</li>
+                            <li>...</li>
+                        </ol>
+                        <p><a href="https://developer.yahoo.com/performance/rules.html">https://developer.yahoo.com/performance/rules.html</a></p>
+                    </section>
+                    <section>
+                        <h2>Those are all about</h2>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="square round-left"></span>
+                                    </td>
+                                    <td>
+                                        <span class="square"></span>
+                                    </td>
+                                    <td>
+                                        <span class="square"></span>
+                                    </td>
+                                    <td>
+                                        <span class="square"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>TCP Slow Start</h2>
+                        <table class="no-border align-center">
+                            <tbody>
+                                <tr>
+                                    <td style="width:40%">
+                                        <small class="fragment">How fast should I send segments?</small>
+                                    </td>
+                                    <td></td>
+                                    <td style="width:40%">
+                                        <small class="fragment">Ack...ack...ack...ack...ack...</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="square border-round bg-blue">Client</span>
+                                    </td>
+                                    <td>
+                                        <small>...</small>
+                                    </td>
+                                    <td>
+                                        <span class="square border-round bg-yellow">Server</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
 
-				<section>
-					<section>
-						<h3>After user typed the URL...</h3>
-						<img style="margin:0;background:none;box-shadow:none;border:none;" data-src="images/user-typed-url.png" alt="User typed the URL and hitted ENTER key"/>
-					</section>
-					<section>
-						<h3>After user typed the URL...</h3>
-						<img alt="phases of HTTP request and response"/>
-					</section>
-				</section>
+                </section>
 
-				<section>
-					<h2>Redirections</h2>
-					<p>HTTP/1.1 defines several status codes for redirection:</p>
-					<ul style="margin-left:50px;">
-						<li>300 multiple choices (e.g. offer different languages)</li>
-						<li>301 moved permanently</li>
-						<li>302 found</li>
-						<li>303 see other (forces a GET)</li>
-						<li>307 temporary redirect</li>
-						<li>308 permanent redirect (RFC 7538)</li>
-					</ul>
-				</section>
+                <section>
+                    <section>
+                        <h2>After user typed the URL...</h2>
+                        <img style="margin:0;background:none;box-shadow:none;border:none;" data-src="images/user-typed-url.png" alt="User typed the URL and hitted ENTER key"/>
+                    </section>
+                    <section>
+                        <h2>After user typed the URL...</h2>
+                        <img alt="phases of HTTP request and response"/>
+                    </section>
+                </section>
 
-				<section>
-					<a href="https://w3c.github.io/resource-hints/">Resource Hints</a>
-				</section>
+                <section>
+                    <h2>Redirections</h2>
+                    <p>HTTP/1.1 defines several status codes for redirection:</p>
+                    <ul style="margin-left:50px;">
+                        <li>300 multiple choices (e.g. offer different languages)</li>
+                        <li>301 moved permanently</li>
+                        <li>302 found</li>
+                        <li>303 see other (forces a GET)</li>
+                        <li>307 temporary redirect</li>
+                        <li>308 permanent redirect (RFC 7538)</li>
+                    </ul>
+                </section>
 
-				<section>
-					<a href="https://wdrl.info/">Web Development Reading List</a>
-				</section>
+                <section>
+                    <h2>Resources</h2>
+                    <ul>
+                        <li><a href="https://w3c.github.io/resource-hints/">Resource Hints</a></li>
+                        <li><a href="https://wdrl.info/">Web Development Reading List</a></li>
+                    </ul>
+                </section>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
+                <section>
+                    <h2>References</h2>
+                    <ol>
+                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">The Quest to Delight Our Users</a> by <a href="https://www.linkedin.com/in/alvacheung">Alva Cheung(Google)</a></li>
+                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">eBay对页面性能的监控和调优</a> by <a href="mailto:weishi@ebay.com">施尉霁(eBay)</a></li>
+                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
+                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
+                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
+                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
+                    </ol>
+                </section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+                <section>
+                    <h1>Thanks!</h1>
+                </section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
+                <section>
+                    <section id="fragments">
+                        <h2>Fragments</h2>
+                        <p>Hit the next arrow...</p>
+                        <p class="fragment">... to step through ...</p>
+                        <p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+                        <aside class="notes">
+                            This slide has fragments which are also stepped through in the notes window.
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Fragment Styles</h2>
+                        <p>There's different types of fragments, like:</p>
+                        <p class="fragment grow">grow</p>
+                        <p class="fragment shrink">shrink</p>
+                        <p class="fragment fade-out">fade-out</p>
+                        <p class="fragment current-visible">current-visible</p>
+                        <p class="fragment highlight-red">highlight-red</p>
+                        <p class="fragment highlight-blue">highlight-blue</p>
+                    </section>
+                </section>
 
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
+                <section>
+                    <h2>Clever Quotes</h2>
+                    <p>
+                        These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+                        &ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+                    </p>
+                    <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+                        &ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+                        reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+                    </blockquote>
+                </section>
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+                transition: 'convex', // none/fade/slide/convex/concave/zoom
 
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code>Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							<tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
-
-			</div>
-
-		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-
-		</script>
-	</body>
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+        </script>
+    </body>
 </html>
