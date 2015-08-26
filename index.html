@@ -271,17 +271,18 @@
                             <li>Links</li>
                             <li>HTTP 3xx status codes</li>
                             <li>
-                            <pre style="margin:0;paddng:0">
-                                <code style="font-size:.8em" class="html" data-trim contenteditable>&lt;meta http-equiv="refresh" content="5; url=http://example.com/"&gt;</code>
-                            </pre>
+                                <span>HTML meta refresh</span>
+                                <pre style="margin:0 auto;width:100%">
+                                    <code class="html" data-trim contenteditable>&lt;meta http-equiv="refresh" content="5; url=http://example.com/"&gt;</code>
+                                </pre>
                             </li>
                             <li>
                                 <span>JavaScript</span>
                                 <pre>
                                     <code class="javascript" data-trim contenteditable>
-window.location.reload(true); // true to disable cache
-window.location.replace("http://www.z.cn"); // no history
-window.location.assign("http://www.z.cn"); // add history entry
+window.location.reload(true);
+window.location.replace("http://www.z.cn");
+window.location.assign("http://www.z.cn");
 window.location.href = "http://www.z.cn";
 window.location = "http://www.z.cn";
 window.history.forward();
@@ -290,15 +291,6 @@ window.history.go(-1);
                                     </code>
                                 </pre>
                             </li>
-                        </ul>
-                        <p>HTTP/1.1 defines several status codes for redirection:</p>
-                        <ul style="margin-left:50px;">
-                            <li>300 multiple choices (e.g. offer different languages)</li>
-                            <li>301 moved permanently</li>
-                            <li>302 found</li>
-                            <li>303 see other (forces a GET)</li>
-                            <li>307 temporary redirect</li>
-                            <li>308 permanent redirect (RFC 7538)</li>
                         </ul>
                     </section>
                 </section>
