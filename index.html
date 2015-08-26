@@ -46,7 +46,7 @@
                         <h1>Web</h1>
                         <h2>Performance and Future</h2>
                         <p>
-                            <small>Yan (Peter) Li / Aug 2015</small>
+                            <small>Yan (Peter) Li / Sep 2015</small>
                         </p>
                     </section>
                     <section id="qr-online" data-transition="none">
@@ -64,20 +64,28 @@
                 <section id="intro">
                     <section id="whoami">
                         <h2>Hello, I'm Yan</h2>
-                        <img width="350" height="535" style="float:left;margin:0;background:none;box-shadow:none;border:none;" data-src="images/yan-usher-badge-tilt.png" alt="Yan Li Usher Badge"/>
-                        <ul style="float:left;margin-top:150px;">
-                            <li>Joined MSTR in July 2008</li>
-                            <li>Working on Usher NM</li>
-                            <li>Love Web</li>
-                        </ul>
+                        <table class="no-border">
+                            <tbody>
+                                <tr>
+                                    <td><img data-src="images/yan-usher-badge-tilt.png" alt="Yan Li Usher Badge"/></td>
+                                    <td>
+                                        <ul>
+                                            <li>Joined MSTR in July 2008</li>
+                                            <li>Work on Usher Network Manager</li>
+                                            <li>Love Web</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </section>
 
                     <section id="agenda">
                         <h2>Topic</h2>
                         <ul>
                             <li class="fragment">Web Performance Tuning</li>
-                            <li class="fragment">HTTP/2.0</li>
-                            <li class="fragment">A little on Security (HTTPS)</li>
+                            <li class="fragment">Brief Introduction to HTTP/2</li>
+                            <li class="fragment">A little on HTTPS</li>
                         </ul>
                         <p class="fragment">Hope it helps!</p>
                     </section>
@@ -259,6 +267,30 @@
                     </section>
                     <section>
                         <h2>Minimize Redirections</h2>
+                        <ul>
+                            <li>Links</li>
+                            <li>HTTP 3xx status codes</li>
+                            <li>
+                            <pre style="margin:0;paddng:0">
+                                <code style="font-size:.8em" class="html" data-trim contenteditable>&lt;meta http-equiv="refresh" content="5; url=http://example.com/"&gt;</code>
+                            </pre>
+                            </li>
+                            <li>
+                                <span>JavaScript</span>
+                                <pre>
+                                    <code class="javascript" data-trim contenteditable>
+window.location.reload(true); // true to disable cache
+window.location.replace("http://www.z.cn"); // no history
+window.location.assign("http://www.z.cn"); // add history entry
+window.location.href = "http://www.z.cn";
+window.location = "http://www.z.cn";
+window.history.forward();
+window.history.back();
+window.history.go(-1);
+                                    </code>
+                                </pre>
+                            </li>
+                        </ul>
                         <p>HTTP/1.1 defines several status codes for redirection:</p>
                         <ul style="margin-left:50px;">
                             <li>300 multiple choices (e.g. offer different languages)</li>
@@ -304,7 +336,7 @@
                                 <tr>
                                     <td rowspan="2">
                                         <ol>
-                                            <li class="fragment highlight-blue">Intranet DNS</li>
+                                            <li><em class="fragment highlight-blue">Intranet</em> DNS</li>
                                             <li><em class="fragment highlight-red">ISP/local</em> DNS</li>
                                             <li><em class="fragment highlight-blue">Root</em> name server</li>
                                             <li><em class="fragment highlight-blue">.com</em> name server</li>
@@ -443,6 +475,12 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </section>
+                    <section id="caching">
+                        <h2>Caching</h2>
+                        <p>
+                            <a href="https://www.mnot.net/cache_docs/">Caching Tutorial</a> by <a href="https://www.mnot.net/personal/">Mark Nottingham</a>
+                        </p>
                     </section>
                     <section id="domain-sharding">
                         <h2>Domain Sharding</h2>
@@ -666,6 +704,18 @@ for(var i=0,l=elements.length; i&lt;l; i++) {
                     <section>
                         <h2>Prepare for HTTP/2</h2>
                         <img data-src="images/http2-chrome.png" alt="HTTP2 Chrome net-internals" />
+                    </section>
+                    <section>
+                        <h2>HTTP/2</h2>
+                        <small>
+                            <p>WikiPedia</p>
+                            <blockquote cite="https://http2.github.io/#what-is-http2">
+                                &ldquo;The focus of the protocol is on performance.&rdquo;
+                            </blockquote>
+                            <blockquote cite="https://http2.github.io/#what-is-http2">
+                                &ldquo;One major goal is to allow the use of a single connection from browsers to a Web site.&rdquo;
+                            </blockquote>
+                        </small>
                     </section>
                     <section>
                         <h2>Mulplexing in HTTP/2</h2>

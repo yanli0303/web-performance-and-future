@@ -1,6 +1,9 @@
 ul > li {
     list-style: square;
 }
+ul > li > ul > li {
+    list-style: circle;
+}
 .reveal .slides section .fragment.highlight-blue.visible {
     color: #A4B623;
 }
