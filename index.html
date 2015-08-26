@@ -97,7 +97,6 @@
 
                     <section id="page-size">
                         <h2>Page Size (top 1000)</h2>
-                        <p><a href="http://httparchive.org/interesting.php">http://httparchive.org/interesting.php</a></p>
                         <table>
                             <thead>
                                 <th>Year</th>
@@ -130,14 +129,18 @@
                                     <td>1834 KB</td>
                                     <td>14%</td>
                                 </tr>
-                                <tr class="fragment">
+                                <tr>
                                     <td>08/15/2015</td>
                                     <td>2008 KB</td>
                                     <td>9%</td>
                                 </tr>
                             </tbody>
                         </table>
-
+                        <p>
+                            <small>
+                                <a href="http://httparchive.org/interesting.php">http://httparchive.org/interesting.php</a>
+                            </small>
+                        </p>
                     </section>
 
                     <section id="speed">
@@ -151,7 +154,7 @@
                                 <tr>
                                     <th>Data rate</th>
                                     <th>Latency</th>
-                                    <th>Gen</th>
+                                    <th>G</th>
                                     <th>Data rate</th>
                                     <th>Latency</th>
                                 </tr>
@@ -229,6 +232,9 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <p class="fragment">
+                            <a href="http://www.w3.org/TR/navigation-timing/#processing-model">http://www.w3.org/TR/navigation-timing/#processing-model</a>
+                        </p>
                     </section>
                 </section>
 
@@ -265,7 +271,7 @@
                     </section>
                 </section>
 
-                <section id="httpdns">
+                <section id="dns">
                     <section>
                         <h2>DNS</h2>
                         <table class="no-border">
@@ -285,7 +291,7 @@
                             </tbody>
                         </table>
                     </section>
-                    <section>
+                    <section id="httpdns">
                         <h2>DNS lookup</h2>
                         <table class="bordered align-center">
                             <thead>
@@ -299,7 +305,7 @@
                                     <td rowspan="2">
                                         <ol>
                                             <li class="fragment highlight-blue">Intranet DNS</li>
-                                            <li><em class="fragment highlight-red">ISP</em> DNS</li>
+                                            <li><em class="fragment highlight-red">ISP/local</em> DNS</li>
                                             <li><em class="fragment highlight-blue">Root</em> name server</li>
                                             <li><em class="fragment highlight-blue">.com</em> name server</li>
                                             <li><em class="fragment highlight-blue">google.com</em> name server</li>
@@ -314,6 +320,26 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </section>
+                    <section>
+                        <h2>How fast is your local DNS?</h2>
+                        <p>
+                            <a href="chrome://histograms/DNS.ResolveSuccess">chrome://histograms/DNS.ResolveSuccess</a>
+                        </p>
+                        <ul>
+                            <li class="color-green">Good: &lt;30ms</li>
+                            <li class="color-yellow">Average: 30-100ms</li>
+                            <li class="color-orange">Ouch: 100ms+</li>
+                        </ul>
+                    </section>
+                    <section id="dns-prefetch">
+                        <h2>DNS prefetch</h2>
+                        <pre>
+                            <code class="html" contenteditable>&lt;link rel="dns-prefetch" href="www.microstrategy.com"&gt;</code>
+                        </pre>
+                        <p>Hint browser to pre-resolve these names</p>
+                        <p>Supported: Chrome, Firefox, Safari, IE9+</p>
+                        <p><a href="chrome://dns/">chrome://dns/</a></p>
                     </section>
                 </section>
 
@@ -344,14 +370,14 @@
                             <tbody>
                                 <tr>
                                     <td rowspan="3" class="square border-round bg-olive">Host A</td>
-                                    <td>-----SYN-----&gt;</td>
+                                    <td class="fragment">-----SYN-----&gt;</td>
                                     <td rowspan="3" class="square border-round bg-green">Host B</td>
                                 </tr>
                                 <tr>
-                                    <td>&lt;---SYN ACK---</td>
+                                    <td class="fragment">&lt;---SYN ACK---</td>
                                 </tr>
                                 <tr>
-                                    <td>-----ACK-----&gt;</td>
+                                    <td class="fragment">-----ACK-----&gt;</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -388,8 +414,10 @@
                             </tbody>
                         </table>
                         <p>
-                            <a class="fragment" href="http://www.cdnplanet.com/blog/tune-tcp-initcwnd-for-optimum-performance/">Tuning initcwnd for optimum performance</a><br/>
-                            <a class="fragment" href="http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/">Linux TCP/IP tuning for scalability</a>
+                            <small>
+                                <a class="fragment" href="http://www.cdnplanet.com/blog/tune-tcp-initcwnd-for-optimum-performance/">Tuning initcwnd for optimum performance</a><br/>
+                                <a class="fragment" href="http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/">Linux TCP/IP tuning for scalability (tcp_slow_start_after_idle)</a>
+                            </small>
                         </p>
                     </section>
                 </section>
@@ -410,7 +438,7 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td class="border-left">domain<br/>sharding<br/><br/>caching</td>
+                                    <td class="border-left">caching<br/><br/>domain<br/>sharding</td>
                                     <td class="border-left"></td>
                                 </tr>
                             </tbody>
@@ -418,13 +446,12 @@
                     </section>
                     <section id="domain-sharding">
                         <h2>Domain Sharding</h2>
-                        <table class="fragment no-border align-center">
+                        <table class="no-border align-center">
                             <tbody>
                                 <tr>
                                     <td style="width:30%" class="square border-round bg-blue">Browser</td>
                                     <td>
-                                        <small class="fragment">simultaneous connections</small>
-                                        <small class="fragment">2(1999) simultaneous connections</small>
+                                        <small>2(1999) simultaneous connections</small>
                                         <small class="fragment">6-8(2010) simultaneous connections</small>
                                     </td>
                                     <td style="width:30%" class="square border-round bg-yellow">Domain</td>
@@ -436,6 +463,30 @@
                                 <a href="http://www.mobify.com/blog/domain-sharding-bad-news-mobile-performance/">http://www.mobify.com/blog/domain-sharding-bad-news-mobile-performance/</a>
                             </small>
                         </p>
+                    </section>
+                    <section id="resource-prefetch">
+                        <h2>Resource Prefetch</h2>
+                        <pre>
+                            <code class="html" data-trim contenteditable>
+&lt;link rel="prefetch" href="next-page.css"&gt;
+&lt;link rel="subresource" href="critical.js"&gt;
+                            </code>
+                        </pre>
+                        <ul>
+                            <li>
+                                <span>prefetch</span>
+                                <ul>
+                                    <li>Low-priority download of resources to be used on subsequent pages</li>
+                                    <li>Chrome, Firefox, Safari, IE9+</li>
+                                </ul>
+                            <li>
+                                <span>subresource</span>
+                                <ul>
+                                    <li>Early loading of resources within the current page</li>
+                                    <li>Chrome only</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </section>
                 </section>
 
@@ -472,13 +523,148 @@
                     </section>
                     <section id="async-non-critical">
                         <p>Alva Cheung</p>
-                        <blockquote style="width:80%">&ldquo;Load non-critical features asynchronously&rdquo;</blockquote>
+                        <blockquote cite="http://velocity.oreilly.com.cn/2015/ppts/Alva-Cheung_delight-users_20150811.pdf" style="width:80%">&ldquo;Load non-critical features asynchronously&rdquo;</blockquote>
+                        <p>
+                            <small>
+                                <a href="https://code.facebook.com/posts/991252547593574/the-technology-behind-preview-photos/">Facebook - The technology behind preview photos</a>
+                            </small>
+                        </p>
+                    </section>
+                    <section id="prerender">
+                        <h2>Prerender</h2>
+                        <pre>
+                            <code class="html" data-trim contenteditable>
+                                &lt;link rel="prerender" href="http://www.microstrategy.com"&gt;
+                            </code>
+                        </pre>
+                        <p>Initiate background pre-render of entire page</p>
+                        <p>Supported: Chrome, Firefox</p>
+                        <p>
+                            <a href="chrome://net-internals/#prerender">chrome://net-internals/#prerender</a>
+                        </p>
+                        <p>
+                            <a href="chrome://predictors/">chrome://predictors/</a>
+                        </p>
+                    </section>
+                    <section id="js-rendering">
+                        <h2>JavaScript rendering</h2>
+                        <p>Why care?</p>
+                        <table class="bordered align-center" style="width:60%">
+                            <thead style="font-size:.8em">
+                                <th>Static Web Pages</th>
+                                <th>Interactive</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="width:49.99%;padding:0 1em 1em 1em">
+                                        <table class="no-border">
+                                            <span class="square border-round bg-yellow" style="margin-top:1em">CSS</span>
+                                            <span class="square border-round bg-green" style="margin-top:1em">HTML</span>
+                                            <span class="square border-round bg-blue" style="margin-top:1em">JavaScript</span>
+                                        </table>
+                                    </td>
+                                    <td style="width:49.99%;padding:0 1em 1em 1em">
+                                        <table class="no-border">
+                                            <span class="square border-round bg-yellow" style="margin-top:1em">CSS</span>
+                                            <span class="square border-round bg-blue" style="margin-top:1em">JavaScript</span>
+                                            <span class="square border-round bg-green" style="margin-top:1em">HTML</span>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="fragment"><a href="https://angularjs.org">AngularJS</a>, <a href="http://facebook.github.io/react/">React</a></p>
+                    </section>
+                    <section id="inline-caching">
+                        <h2>Inline Caching</h2>
+                        <p>Speed up runtime method binding by remembering the results of a previous method lookup directly at the call site</p>
+                        <p>
+                            <a href="https://en.wikipedia.org/wiki/Inline_caching">https://en.wikipedia.org/wiki/Inline_caching</a>
+                        </p>
+                    </section>
+                    <section id="break-ic1">
+                        <h2>Inline Caching can be easily broken</h2>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable>
+function addTwoThings(thing1, thing2) {
+    return thing1 + thing2;
+}
+
+addTwoThings(1, 2);
+addTwoThings(100, 200); /* fast */
+addTwoThings('a', 'b'); /* slow */
+                            </code>
+                        </pre>
+                    </section>
+                    <section id="break-ic2">
+                        <h2>Inline Caching can be easily broken</h2>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable>
+function Dog(name) {
+    this.name = name;
+}
+
+var dog1 = new Dog('Jim'); /* hidden class C1 */
+var dog2 = new Dog('Bin'); /* hidden class C2 */
+dog2.gender = 'male';
+                            </code>
+                        </pre>
+                    </section>
+                    <section id="event-throttling">
+                        <h2>Event debouncing/throtting</h2>
+                        <p>onresize, onscroll...etc</p>
+                    </section>
+                    <section id="css-rendering">
+                        <h2>CSS rendering</h2>
+                        <ul>
+                            <li>
+                                <span>Reflow</span>
+                                <ul>
+                                    <li>relocate elements</li>
+                                    <li>change content</li>
+                                    <li>window resize</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>Repaint</span>
+                                <ul>
+                                    <li>change color</li>
+                                    <li>change background color</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>CSS DOM z-index</h2>
+                    </section>
+                    <section id="dom-change-queue">
+                        <h2>Use the DOM change queue</h2>
+                        <pre>
+                            <code class="javascript" data-trim contenteditable>
+var $div = $('#content')
+var elements = ['a', 'b', 'c', 'd'];
+for(var i=0,l=elements.length; i&lt;l; i++) {
+    $div.append(elements[i]);
+}
+                            </code>
+                        </pre>
+                        <pre class="fragment">
+                            <code class="javascript" data-trim contenteditable>
+var $div = $('#content')
+var elements = ['a', 'b', 'c', 'd'];
+for(var i=0,l=elements.length; i&lt;l; i++) {
+    // one line of evilness
+    var a = $(window).scrollTop;
+    $div.append(elements[i]);
+}
+                            </code>
+                        </pre>
                     </section>
                 </section>
 
                 <section id="http2">
                     <section>
-                        <h2>Wecome HTTP/2</h2>
+                        <h2>Prepare for HTTP/2</h2>
                         <img data-src="images/http2-chrome.png" alt="HTTP2 Chrome net-internals" />
                     </section>
                     <section>
@@ -489,11 +675,18 @@
                     </section>
                 </section>
 
+                <section id="https">
+                    <section>
+                        <h2>HTTPS</h2>
+                    </section>
+                </section>
+
                 <section>
                     <h2>Resources</h2>
                     <ul>
                         <li><a href="https://w3c.github.io/resource-hints/">Resource Hints</a></li>
                         <li><a href="https://wdrl.info/">Web Development Reading List</a></li>
+                        <li></li>
                     </ul>
                 </section>
 
@@ -502,8 +695,8 @@
                     <ol>
                         <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">The Quest to Delight Our Users</a> by <a href="https://www.linkedin.com/in/alvacheung">Alva Cheung(Google)</a></li>
                         <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">eBay对页面性能的监控和调优</a> by <a href="mailto:weishi@ebay.com">施尉霁(eBay)</a></li>
-                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
-                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
+                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">淘宝全站HTTPS实践</a> by 李振宇(阿里巴巴)</li>
+                        <li><a href="http://www.slideshare.net/MilanAryal/preconnect-prefetch-prerender">Preconnect, prefetch, prerender</a> by </li>
                         <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
                         <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
                     </ol>
@@ -511,41 +704,7 @@
 
                 <section>
                     <h1>Thanks!</h1>
-                </section>
-
-                <section>
-                    <section id="fragments">
-                        <h2>Fragments</h2>
-                        <p>Hit the next arrow...</p>
-                        <p class="fragment">... to step through ...</p>
-                        <p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-                        <aside class="notes">
-                            This slide has fragments which are also stepped through in the notes window.
-                        </aside>
-                    </section>
-                    <section>
-                        <h2>Fragment Styles</h2>
-                        <p>There's different types of fragments, like:</p>
-                        <p class="fragment grow">grow</p>
-                        <p class="fragment shrink">shrink</p>
-                        <p class="fragment fade-out">fade-out</p>
-                        <p class="fragment current-visible">current-visible</p>
-                        <p class="fragment highlight-red">highlight-red</p>
-                        <p class="fragment highlight-blue">highlight-blue</p>
-                    </section>
-                </section>
-
-                <section>
-                    <h2>Clever Quotes</h2>
-                    <p>
-                        These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                        &ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-                    </p>
-                    <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                        &ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-                        reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-                    </blockquote>
+                    <img width="369" height="403" data-src="images/qr-yan-wechat.png" alt="Yan Li WeChat ID" />
                 </section>
             </div>
         </div>

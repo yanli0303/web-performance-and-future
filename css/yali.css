@@ -1,5 +1,8 @@
 ul > li {
-  list-style: square;
+    list-style: square;
+}
+.reveal .slides section .fragment.highlight-blue.visible {
+    color: #A4B623;
 }
 .reveal section img {
     background: transparent;
@@ -7,55 +10,82 @@ ul > li {
     box-shadow: none;
     border-radius: 5px;
 }
-.reveal .bordered th, .reveal .bordered td,
+.reveal pre {
+    box-shadow: none;
+}
+.reveal .bordered th,
+.reveal .bordered td,
 .reveal .bordered tr:last-child td {
     border: 1px solid #fff;
 }
-.reveal .no-border th, .reveal .no-border td {
-  border: 0;
+.reveal .no-border th,
+.reveal .no-border td {
+    border: 0;
 }
-.reveal .align-center th, .reveal .align-center td {
-  text-align: center;
+.reveal .align-center th,
+.reveal .align-center td {
+    text-align: center;
 }
 .reveal td,
 .reveal th {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 span.square {
-  display: block;
+    display: block;
 }
-.square, tr.progress-bar td {
-  text-align: center;
-  border: 1px solid #fff;
-  border-radius: none;
+.square,
+tr.progress-bar td {
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: none;
 }
 .border-round {
-  border-radius: 10px;
+    border-radius: 10px;
 }
-.border-round-left, tr.progress-bar td:first-child {
-  border-radius: 10px 0 0 10px;
+.border-round-left,
+tr.progress-bar td:first-child {
+    border-radius: 10px 0 0 10px;
 }
-.border-round-right, tr.progress-bar td:last-child {
-  border-radius: 0 10px 10px 0;
+.border-round-right,
+tr.progress-bar td:last-child {
+    border-radius: 0 10px 10px 0;
 }
 .reveal .no-border .border-left {
-  border-left: 1px solid #fff;
+    border-left: 1px solid #fff;
 }
 .bg-yellow {
-  background-color: #FEC303;
+    background-color: #FEC303;
 }
 .bg-olive {
-  background-color: #325D6A;
+    background-color: #325D6A;
 }
 .bg-orange {
-  background-color: #E48223;
+    background-color: #E48223;
 }
 .bg-blue {
-  background-color: #1775DD;
+    background-color: #1775DD;
 }
 .bg-green {
-  background-color: #A4B623;
+    background-color: #A4B623;
 }
 .bg-pink {
-  background-color: #C48793;
+    background-color: #C48793;
+}
+.color-yellow {
+    color: #FEC303;
+}
+.color-olive {
+    color: #325D6A;
+}
+.color-orange {
+    color: #E48223;
+}
+.color-blue {
+    color: #1775DD;
+}
+.color-green {
+    color: #A4B623;
+}
+.color-pink {
+    color: #C48793;
 }
