@@ -268,7 +268,7 @@
                     <section>
                         <h2>Minimize Redirections</h2>
                         <ul>
-                            <li>Links</li>
+                            <li>Links/forms</li>
                             <li>HTTP 3XX status codes</li>
                             <li>
                                 <span>HTML meta refresh</span>
@@ -280,7 +280,7 @@
                                 <span>JavaScript</span>
                                 <pre>
                                     <code class="javascript" data-trim contenteditable>
-window.location.reload(true);
+window.location.reload(true); // document.location?
 window.location.replace("http://www.z.cn");
 window.location.assign("http://www.z.cn");
 window.location.href = "http://www.z.cn";
@@ -317,33 +317,14 @@ window.history.go(-1);
                     </section>
                     <section id="httpdns">
                         <h2>DNS lookup</h2>
-                        <table class="bordered align-center">
-                            <thead>
-                                <tr>
-                                    <th style="width:40%">www.google.com</th>
-                                    <th colspan="2"><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODgyNzcwMw==&mid=201837080&idx=1&sn=b2a152b84df1c7dbd294ea66037cf262&scene=2&from=timeline&isappinstalled=0#rd">HttpDNS</a></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowspan="2">
-                                        <ol>
-                                            <li><em class="fragment highlight-blue">Intranet</em> DNS</li>
-                                            <li><em class="fragment highlight-red">ISP/local</em> DNS</li>
-                                            <li><em class="fragment highlight-blue">Root</em> name server</li>
-                                            <li><em class="fragment highlight-blue">.com</em> name server</li>
-                                            <li><em class="fragment highlight-blue">google.com</em> name server</li>
-                                        </ol>
-                                    </td>
-                                    <td>1st request</td>
-                                    <td class="fragment highlight-blue">Http gets<br/>Nearest server IP</td>
-                                </tr>
-                                <tr>
-                                    <td>Subsequent</td>
-                                    <td class="fragment highlight-blue">Nearest server IP</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <p>www.google.com</p>
+                        <ol style="width:40%">
+                            <li><em class="fragment highlight-blue">Intranet</em> DNS</li>
+                            <li><em class="fragment highlight-red">ISP/local</em> DNS</li>
+                            <li><em class="fragment highlight-blue">Root</em> name server</li>
+                            <li><em class="fragment highlight-blue">.com</em> name server</li>
+                            <li><em class="fragment highlight-blue">google.com</em> name server</li>
+                        </ol>
                     </section>
                     <section>
                         <h2>How fast is your local DNS?</h2>
@@ -355,6 +336,17 @@ window.history.go(-1);
                             <li class="color-yellow">Average: 30-100ms</li>
                             <li class="color-orange">Ouch: 100ms+</li>
                         </ul>
+                    </section>
+                    <section>
+                        <h2>HttpDNS</h2>
+                        <ul>
+                            <li>1st request: Http gets nearest server IP</li>
+                            <li>Subsequent: nearest server IP</li>
+                        </ul>
+                        <p>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODgyNzcwMw==&mid=201837080&idx=1&sn=b2a152b84df1c7dbd294ea66037cf262&scene=2&from=timeline&isappinstalled=0#rd">全局精确流量调度新思路-HttpDNS服务详解</a><br/>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=209805123&idx=1&sn=ced8d67c3e2cc3ca38ef722949fa21f8&scene=2&srcid=WNjSToklLOOIrJ4xkgUA&from=timeline&isappinstalled=0#rd">App域名劫持之DNS高可用 - 开源版HttpDNS方案详解</a>
+                        </p>
                     </section>
                     <section id="dns-prefetch">
                         <h2>DNS prefetch</h2>
