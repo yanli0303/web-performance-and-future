@@ -137,7 +137,7 @@
                                     <td>1834 KB</td>
                                     <td>14%</td>
                                 </tr>
-                                <tr>
+                                <tr class="fragment">
                                     <td>08/15/2015</td>
                                     <td>2008 KB</td>
                                     <td>9%</td>
@@ -149,6 +149,52 @@
                                 <a href="http://httparchive.org/interesting.php">http://httparchive.org/interesting.php</a>
                             </small>
                         </p>
+                    </section>
+
+                    <section id="page-size-demo">
+                        <h2>Page Size</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Site</th>
+                                    <th>Requests</th>
+                                    <th>Size</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>www.163.com</td>
+                                    <td>434</td>
+                                    <td>3.6 MB</td>
+                                    <td>1.7 min</td>
+                                </tr>
+                                <tr>
+                                    <td>www.taobao.com</td>
+                                    <td>116</td>
+                                    <td>1.3 MB</td>
+                                    <td>40.35 s</td>
+                                </tr>
+                                <tr>
+                                    <td>www.jd.com</td>
+                                    <td>79</td>
+                                    <td>1.6 MB</td>
+                                    <td>1.2 min</td>
+                                </tr>
+                                <tr>
+                                    <td>www.microsoft.com</td>
+                                    <td>76</td>
+                                    <td>2.2 MB</td>
+                                    <td>16.79 s</td>
+                                </tr>
+                                <tr>
+                                    <td>www.microstrategy.com</td>
+                                    <td>81</td>
+                                    <td>1.1 MB</td>
+                                    <td>37.29 s</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </section>
 
                     <section id="speed">
@@ -241,7 +287,10 @@
                             </tbody>
                         </table>
                         <p class="fragment">
-                            <a href="http://www.w3.org/TR/navigation-timing/#processing-model">http://www.w3.org/TR/navigation-timing/#processing-model</a>
+                            <small>
+                                <span>Similar graph:</span>
+                                <a href="http://www.w3.org/TR/navigation-timing/#processing-model">http://www.w3.org/TR/navigation-timing/#processing-model</a>
+                            </small>
                         </p>
                     </section>
                 </section>
@@ -315,10 +364,10 @@ window.history.go(-1);
                             </tbody>
                         </table>
                     </section>
-                    <section id="httpdns">
+                    <section id="how-dns-works">
                         <h2>DNS lookup</h2>
-                        <p>www.google.com</p>
-                        <ol style="width:40%">
+                        <p><a href="//www.google.com">www.google.com</a></p>
+                        <ol style="width:45%">
                             <li><em class="fragment highlight-blue">Intranet</em> DNS</li>
                             <li><em class="fragment highlight-red">ISP/local</em> DNS</li>
                             <li><em class="fragment highlight-blue">Root</em> name server</li>
@@ -326,7 +375,7 @@ window.history.go(-1);
                             <li><em class="fragment highlight-blue">google.com</em> name server</li>
                         </ol>
                     </section>
-                    <section>
+                    <section id="how-fast-local-dns">
                         <h2>How fast is your local DNS?</h2>
                         <p>
                             <a href="chrome://histograms/DNS.ResolveSuccess">chrome://histograms/DNS.ResolveSuccess</a>
@@ -337,7 +386,7 @@ window.history.go(-1);
                             <li class="color-orange">Ouch: 100ms+</li>
                         </ul>
                     </section>
-                    <section>
+                    <section id="httpdns">
                         <h2>HttpDNS</h2>
                         <ul>
                             <li>1st request: Http gets nearest server IP</li>
@@ -633,10 +682,6 @@ dog2.gender = 'male';
                             </code>
                         </pre>
                     </section>
-                    <section id="event-throttling">
-                        <h2>Event debouncing/throtting</h2>
-                        <p>onresize, onscroll...etc</p>
-                    </section>
                     <section id="css-rendering">
                         <h2>CSS rendering</h2>
                         <ul>
@@ -657,8 +702,9 @@ dog2.gender = 'male';
                             </li>
                         </ul>
                     </section>
-                    <section>
-                        <h2>CSS DOM z-index</h2>
+                    <section id="event-throttling">
+                        <h2>Event debouncing/throtting</h2>
+                        <p>onresize, onscroll...etc</p>
                     </section>
                     <section id="dom-change-queue">
                         <h2>Use the DOM change queue</h2>
@@ -682,6 +728,9 @@ for(var i=0,l=elements.length; i&lt;l; i++) {
 }
                             </code>
                         </pre>
+                    </section>
+                    <section id="paint-speed">
+                        <h2>CSS DOM z-index</h2>
                     </section>
                 </section>
 
@@ -711,29 +760,103 @@ for(var i=0,l=elements.length; i&lt;l; i++) {
                 </section>
 
                 <section id="https">
-                    <section>
+                    <section id="what-is-https">
                         <h2>HTTPS</h2>
+                        <p>HTTP + <span class="color-green">SSL/TLS</span> = HTTPS</p>
+                        <ul>
+                            <li class="fragment">
+                                <strong>Authentication</strong><br/>
+                                <small>Am I talking to who they claim to be?</small>
+                            </li>
+                            <li class="fragment">
+                                <strong>Data integrity</strong><br/>
+                                <small>Has anyone tampered with the data?</small>
+                            </li>
+                            <li class="fragment">
+                                <strong>Encryption</strong><br/>
+                                <small>Can anyone see my conversation?</small>
+                            </li>
+                        </ul>
+                        <p class="fragment color-green"><strong>Equally Important!</strong></p>
+                    </section>
+                    <section id="https-encryption">
+                        <h2>Encyption</h2>
+                        <ul>
+                            <li>Handshake: asymmetric crypto</li>
+                            <li>Application data transfer: symmetric crypto</li>
+                        </ul>
+                        <p>
+                            <small>
+                                <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">Transport Layer Security</a>
+                            </small>
+                        </p>
+                    </section>
+                    <section id="https-not-slow">
+                        <h2>Is HTTPS slow?</h2>
+                        <ul>
+                            <li>Extra CPU costs</li>
+                            <li>Extra roundtrips</li>
+                        </ul>
+                        <p><a href="https://istlsfastyet.com/">IsTlsFastYet.com</a>:</p>
+                        <blockquote cite="https://istlsfastyet.com/">
+                            &ldquo;TLS has exactly one performance problem: it is not used widely enough.<br/>Everything else can be optimized.&rdquo;
+                        </blockquote>
+                        <p>
+                            <span>Dive deeper:</span>
+                            <a href="https://www.youtube.com/watch?v=0EB7zh_7UE4">YouTube - Is TLS Fast Yet?</a>
+                        </p>
+                    </section>
+                    <section id="https-howto">
+                        <h2>HTTPS</h2>
+                        <ul>
+                            <li>Get a 2048-bit TLS certificate</li>
+                            <li>Eliminate both <em>Yello Triangle</em> and <em>Shield</em></li>
+                            <li>Use latest version of Kernal, OpenSSl and Apache/Nginx</li>
+                            <li>Use SPDY3.1 &amp; HTTP/2</li>
+                            <li>
+                                <span>Use protocol relative URIs</span>
+                                <pre>
+                                    <code class="html" data-trim contenteditable>
+                                    &lt;script src="//code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt;
+                                    </code>
+                                </pre>
+                            </li>
+                            <li>HTTP URL --&gt; 301 --&gt; HTTPS URL</li>
+                            <li>Apply HSTS</li>
+                        </ul>
+                        <p>
+                            <a href="https://wiki.mozilla.org/Security/Server_Side_TLS">Mozilla Wiki</a><br/>
+                            <a href="https://www.ssllabs.com/ssltest/">Qualys SSL Labs</a><br/>
+                        </p>
+                    </section>
+                    <section id="https-hsts">
+                        <h2>HTTP Strict Transport Security (HSTS)</h2>
+                        <pre>
+                            <code class="http" data-trim contenteditable>
+                                Strict-Transport-Security: max-age=10886400; includeSubDomains
+                            </code>
+                        </pre>
+                        <p>Browser remembers (for specified max-age period) that it should automatically request HTTPS resources for this site and its subdomains.</p>
+                        <p>HSTS eliminates HTTP --&gt; HTTPS redirects.</p>
                     </section>
                 </section>
 
                 <section>
-                    <h2>Resources</h2>
+                    <h2>Web Dev Resources</h2>
                     <ul>
-                        <li><a href="https://w3c.github.io/resource-hints/">Resource Hints</a></li>
                         <li><a href="https://wdrl.info/">Web Development Reading List</a></li>
-                        <li></li>
                     </ul>
                 </section>
 
                 <section>
                     <h2>References</h2>
-                    <ol>
+                    <ol style="width:99%">
                         <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">The Quest to Delight Our Users</a> by <a href="https://www.linkedin.com/in/alvacheung">Alva Cheung(Google)</a></li>
                         <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">eBay对页面性能的监控和调优</a> by <a href="mailto:weishi@ebay.com">施尉霁(eBay)</a></li>
                         <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">淘宝全站HTTPS实践</a> by 李振宇(阿里巴巴)</li>
-                        <li><a href="http://www.slideshare.net/MilanAryal/preconnect-prefetch-prerender">Preconnect, prefetch, prerender</a> by </li>
-                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
-                        <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos"></a></li>
+                        <li><a href="https://www.youtube.com/watch?v=cBhZ6S0PFCY">Google I/O 2014 - HTTPS Everywhere</a></li>
+                        <li><a href="http://www.slideshare.net/MilanAryal/preconnect-prefetch-prerender">Preconnect, prefetch, prerender</a> by <a href="igrigorik@google.com">Ilya Grigorik</a></li>
+                        <li><a href="https://w3c.github.io/resource-hints/">Resource Hints</a></li>
                     </ol>
                 </section>
 
