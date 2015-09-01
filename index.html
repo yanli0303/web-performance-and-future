@@ -103,42 +103,49 @@
                         </table>
                     </section>
 
-                    <section id="page-size">
+                    <section id="page-size-trend">
                         <h2>Page Size (top 1000)</h2>
                         <table>
                             <thead>
                                 <th>Year</th>
-                                <th>Avg. Size</th>
+                                <th>Requests</th>
+                                <th>Avg. Transfer Size</th>
                                 <th>Growth</th>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>12/28/2010</td>
-                                    <td>651 KB</td>
+                                    <td>12/17/2010</td>
+                                    <td>82</td>
+                                    <td>655 KB</td>
                                     <td>N/A</td>
                                 </tr>
                                 <tr>
                                     <td>12/15/2011</td>
+                                    <td>90</td>
                                     <td>810 KB</td>
                                     <td>24%</td>
                                 </tr>
                                 <tr>
                                     <td>12/15/2012</td>
+                                    <td>99</td>
                                     <td>1163 KB</td>
                                     <td>44%</td>
                                 </tr>
                                 <tr>
                                     <td>12/15/2013</td>
+                                    <td>112</td>
                                     <td>1607 KB</td>
                                     <td>38%</td>
                                 </tr>
                                 <tr>
                                     <td>12/15/2014</td>
+                                    <td>117</td>
                                     <td>1834 KB</td>
                                     <td>14%</td>
                                 </tr>
                                 <tr class="fragment">
                                     <td>08/15/2015</td>
+                                    <td>128</td>
                                     <td>2008 KB</td>
                                     <td>9%</td>
                                 </tr>
@@ -146,7 +153,7 @@
                         </table>
                         <p>
                             <small>
-                                <a href="http://httparchive.org/interesting.php">http://httparchive.org/interesting.php</a>
+                                <a href="http://httparchive.org/trends.php">http://httparchive.org/trends.php</a>
                             </small>
                         </p>
                     </section>
@@ -197,7 +204,7 @@
                         </table>
                     </section>
 
-                    <section id="speed">
+                    <section id="network-speed">
                         <h2>Network speed</h2>
                         <table style="font-size:90%" class="bordered align-center">
                             <thead>
@@ -215,21 +222,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td rowspan="3">10Mbps<br/>100Mbps<br/>1Gbps</td>
+                                    <td rowspan="3">10 Mbps<br/>100 Mbps<br/>1 Gbps</td>
                                     <td rowspan="3">65-145 ms</td>
                                     <td>2G</td>
-                                    <td>100-400Kbps</td>
-                                    <td>300-1000ms</td>
+                                    <td>100-400 Kbps</td>
+                                    <td>300-1000 ms</td>
                                 </tr>
                                 <tr>
                                     <td>3G</td>
-                                    <td>0.5-1Mbps</td>
-                                    <td>100-500ms</td>
+                                    <td>0.5-1 Mbps</td>
+                                    <td>100-500 ms</td>
                                 </tr>
                                 <tr>
                                     <td>4G</td>
-                                    <td>1-50Mbps</td>
-                                    <td>&lt;100ms</td>
+                                    <td>1-50 Mbps</td>
+                                    <td>&lt;100 ms</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -244,7 +251,7 @@
                 </section>
 
                 <section id="latency">
-                    <section>
+                    <section id="faster-web">
                         <h2>Faster web sites</h2>
                         <p>What rules/best practices do you know?</p>
                     </section>
@@ -296,7 +303,7 @@
                 </section>
 
                 <section id="redirect">
-                    <section>
+                    <section id="redirect-timeline">
                         <h2>Redirections</h2>
                         <table class="no-border">
                             <tbody>
@@ -314,7 +321,7 @@
                             </tbody>
                         </table>
                     </section>
-                    <section>
+                    <section id="min-redirections">
                         <h2>Minimize Redirections</h2>
                         <ul>
                             <li>Links/forms</li>
@@ -345,7 +352,7 @@ window.history.go(-1);
                 </section>
 
                 <section id="dns">
-                    <section>
+                    <section id="dns-timeline">
                         <h2>DNS</h2>
                         <table class="no-border">
                             <tbody>
@@ -368,8 +375,9 @@ window.history.go(-1);
                         <h2>DNS lookup</h2>
                         <p><a href="//www.google.com">www.google.com</a></p>
                         <ol style="width:45%">
-                            <li><em class="fragment highlight-blue">Intranet</em> DNS</li>
-                            <li><em class="fragment highlight-red">ISP/local</em> DNS</li>
+                            <li><em class="fragment highlight-blue">Browser/OS</em> cache</li>
+                            <li><em class="fragment highlight-blue">Intranet</em> cache</li>
+                            <li><em class="fragment highlight-red">ISP/local</em> cache</li>
                             <li><em class="fragment highlight-blue">Root</em> name server</li>
                             <li><em class="fragment highlight-blue">.com</em> name server</li>
                             <li><em class="fragment highlight-blue">google.com</em> name server</li>
@@ -392,6 +400,7 @@ window.history.go(-1);
                             <li>1st request: Http gets nearest server IP</li>
                             <li>Subsequent: nearest server IP</li>
                         </ul>
+                        <p>In 2013, Taobao survivied from public DNS server attack</p>
                         <p>
                             <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODgyNzcwMw==&mid=201837080&idx=1&sn=b2a152b84df1c7dbd294ea66037cf262&scene=2&from=timeline&isappinstalled=0#rd">全局精确流量调度新思路-HttpDNS服务详解</a><br/>
                             <a href="http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=209805123&idx=1&sn=ced8d67c3e2cc3ca38ef722949fa21f8&scene=2&srcid=WNjSToklLOOIrJ4xkgUA&from=timeline&isappinstalled=0#rd">App域名劫持之DNS高可用 - 开源版HttpDNS方案详解</a>
@@ -409,7 +418,7 @@ window.history.go(-1);
                 </section>
 
                 <section id="tcp">
-                    <section>
+                    <section id="tcp-landing">
                         <h2>TCP</h2>
                         <table class="no-border">
                             <tbody>
@@ -454,36 +463,13 @@ window.history.go(-1);
                     </section>
                     <section id="tcp-slow-start">
                         <h2>TCP Slow Start</h2>
-                        <table class="fragment no-border align-center">
-                            <tbody>
-                                <tr>
-                                    <td style="width:40%">
-                                        <small class="fragment">How fast should I send segments?</small>
-                                    </td>
-                                    <td></td>
-                                    <td style="width:40%">
-                                        <small class="fragment">Ack...ack...ack...ack...ack...</small>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="square border-round bg-blue">Host A</span>
-                                    </td>
-                                    <td>
-                                        <small>...routers...</small>
-                                    </td>
-                                    <td>
-                                        <span class="square border-round bg-yellow">Host B</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>
-                            <small>
-                                <a class="fragment" href="http://www.cdnplanet.com/blog/tune-tcp-initcwnd-for-optimum-performance/">Tuning initcwnd for optimum performance</a><br/>
-                                <a class="fragment" href="http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/">Linux TCP/IP tuning for scalability (tcp_slow_start_after_idle)</a>
-                            </small>
-                        </p>
+                        <img data-src="images/tcp-slow-start.jpg" alt="TCP Slow Start" />
+                    </section>
+                    <section>
+                        <h2>TCP Slow Start</h2>
+                        <p><a href="https://en.wikipedia.org/wiki/Slow-start">Wikipedia: Slow Start</a></p>
+                        <p><a href="http://www.cdnplanet.com/blog/tune-tcp-initcwnd-for-optimum-performance/">Tuning initcwnd for optimum performance</a></p>
+                        <p><a style="font-size:80%" href="http://www.lognormal.com/blog/2012/09/27/linux-tcpip-tuning/">Linux TCP/IP tuning for scalability (tcp_slow_start_after_idle)</a></p>
                     </section>
                 </section>
 
@@ -698,6 +684,7 @@ dog2.gender = 'male';
                                 <ul>
                                     <li>change color</li>
                                     <li>change background color</li>
+                                    <li>change visibility</li>
                                 </ul>
                             </li>
                         </ul>
@@ -730,12 +717,49 @@ for(var i=0,l=elements.length; i&lt;l; i++) {
                         </pre>
                     </section>
                     <section id="paint-speed">
-                        <h2>CSS DOM z-index</h2>
+                        <h2>Painting performance</h2>
+                        <ul>
+                            <li>Minimize depth</li>
+                            <li>Minimize z-index depth</li>
+                            <li>Minimize CSS rules</li>
+                            <li>
+                                <span>Use faster selectors</span>
+                                <ul>
+                                    <li>Avoid descendant selector</li>
+                                    <li>
+                                        <span>Structure selector right to left</span>
+                                        <pre>
+                                            <code class="css" data-trim contenteditable>.class ul li a { color: blue; }</code>
+                                        </pre>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section id="paint-speed2">
+                        <h2>Painting performance</h2>
+                        <ul>
+                            <li>
+                                <span>Use expensive properties sparingly</span>
+                                <pre>
+                                    <code class="css" data-trim contenteditable>border-radius; box-shadow; transform,filter; :nth-child; position:fixed;</code>
+                                </pre>
+                            </li>
+                            <li>
+                                <span>Don't use universal selectors</span>
+                                <pre>
+                                    <code class="css" data-trim contenteditable>*; [disabled]; [type="text"]</code>
+                                </pre>
+                            </li>
+                        </ul>
+                        <p>
+                            <a href="http://johnotander.com/css/2015/06/10/css-performance/">Improving CSS Performance</a>
+                        </p>
                     </section>
                 </section>
 
                 <section id="http2">
-                    <section>
+                    <section id="http2-is-here">
                         <h2>Prepare for HTTP/2</h2>
                         <img data-src="images/http2-chrome.png" alt="HTTP2 Chrome net-internals" />
                     </section>
@@ -841,14 +865,14 @@ for(var i=0,l=elements.length; i&lt;l; i++) {
                     </section>
                 </section>
 
-                <section>
+                <section id="web-dev-resources">
                     <h2>Web Dev Resources</h2>
                     <ul>
                         <li><a href="https://wdrl.info/">Web Development Reading List</a></li>
                     </ul>
                 </section>
 
-                <section>
+                <section id="references">
                     <h2>References</h2>
                     <ol style="width:99%">
                         <li><a href="http://velocity.oreilly.com.cn/2015/index.php?func=slidesvideos">The Quest to Delight Our Users</a> by <a href="https://www.linkedin.com/in/alvacheung">Alva Cheung(Google)</a></li>
@@ -860,7 +884,7 @@ for(var i=0,l=elements.length; i&lt;l; i++) {
                     </ol>
                 </section>
 
-                <section>
+                <section id="references">
                     <h1>Thanks!</h1>
                     <img width="369" height="403" data-src="images/qr-yan-wechat.png" alt="Yan Li WeChat ID" />
                     <p>WeChat ID: peterleepersonal</p>
