@@ -967,7 +967,7 @@ Upgrade: h2c
             </div>
         </div>
         <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
+        <script src="js/reveal.min.js"></script>
         <script>
             // Full list of configuration options available at:
             // https://github.com/hakimel/reveal.js#configuration
@@ -983,8 +983,7 @@ Upgrade: h2c
                 dependencies: [
                     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
                     { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: 'plugin/zoom-js/zoom.js', async: true },
-                    { src: 'plugin/notes/notes.js', async: true }
+                    { src: 'plugin/zoom-js/zoom.min.js', async: true }
                 ]
             });
         </script>
