@@ -761,25 +761,66 @@ for(var i=0,l=elements.length; i&lt;l; i++) {
                 <section id="http2">
                     <section id="http2-is-here">
                         <h2>Prepare for HTTP/2</h2>
+                        <p>
+                            <a href="https://www.mnot.net/blog/2015/02/18/http2">HTTP/2 is Done</a>
+                        </p>
                         <img data-src="images/http2-chrome.png" alt="HTTP2 Chrome net-internals" />
                     </section>
-                    <section>
-                        <h2>HTTP/2</h2>
-                        <small>
-                            <p>WikiPedia</p>
-                            <blockquote cite="https://http2.github.io/#what-is-http2">
-                                &ldquo;The focus of the protocol is on performance.&rdquo;
-                            </blockquote>
-                            <blockquote cite="https://http2.github.io/#what-is-http2">
-                                &ldquo;One major goal is to allow the use of a single connection from browsers to a Web site.&rdquo;
-                            </blockquote>
-                        </small>
+                    <section id="http2-aims">
+                        <h2>HTTP/2 Aims</h2>
+                        <ol>
+                            <li>Reduce latency</li>
+                            <li>Reduce total number of TCP connections<br/>i.e., reduce number of open sockets</li>
+                            <li>Better web security</li>
+                            <li>Maintain compatibility with HTTP/1.1<br/>clients and server</li>
+                            <li>Maintain same usability as HTTP/1.1<br/>i.e., can be used wherever we use HTTP/1.1</li>
+                            <li>Better web security</li>
+                        </ol>
                     </section>
-                    <section>
+                    <section id="http2-features">
+                        <h2>HTTP/2 Features</h2>
+                        <ol>
+                            <li>Multiplexing<br><small>Multiple asynchronous HTTP requests over a single TCP connection.</small></li>
+                            <li>Server Push<br><small>Multiple responses for single request</small></li>
+                            <li>Header Compression<br><small>Compress HTTP headers along with content.</small></li>
+                            <li>Request prioritization<br><small>While making multiple HTTP requests to a same domain they can be prioritized.</small></li>
+                            <li>Binary Protocol<br><small>HTTP/2 is binary protocol whereas HTTP/1.1 is text protocol.</small></li>
+                        </ol>
+                        <p>
+                            <small>
+                                <a href="http://qnimate.com/post-series/http2-complete-tutorial/">HTTP/2 Complete Tutorial</a>
+                            </small>
+                        </p>
+                    </section>
+                    <section id="http2-mulplexing">
                         <h2>Mulplexing in HTTP/2</h2>
+                        <ul>
+                            <li>
+                                <span>HTTP/1.1 Pipelining</span>
+                                <ul>
+                                    <li>Multiple HTTP requests are sent on a single TCP connection asynchronously</li>
+                                    <li>Server responses synchronously</li>
+                                    <li>First-in-first-out</li>
+                                    <li><a href="https://en.wikipedia.org/wiki/Head-of-line_blocking">Head-of-line (HOL) blocking</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>HTTP/2 Mulplexing</span>
+                                <ul>
+                                    <li>Streams and frames<br/><small>Every HTTP/2 request and response is given a unique id called as stream id</small></li>
+                                    <li>Server also responses asynchronously</li>
+                                    <li>The request and response both happen parallelly</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p></p>
+                        <p></p>
                     </section>
-                    <section>
+                    <section id="http2-server-push">
                         <h2>Server push in HTTP/2</h2>
+                    </section>
+                    <section id="http2-header-compression">
+                        <h2>Header compression in HTTP/2</h2>
                     </section>
                 </section>
 
