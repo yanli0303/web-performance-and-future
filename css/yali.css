@@ -4,8 +4,11 @@ ul > li {
 ul > li > ul > li {
     list-style: circle;
 }
-.reveal li pre {
+.reveal pre {
     margin: 0 auto;
+}
+.reveal li pre,
+.reveal td pre {
     width: 100%;
 }
 .reveal .slides section .fragment.highlight-blue.visible {
