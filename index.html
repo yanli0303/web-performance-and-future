@@ -396,7 +396,6 @@ window.history.go(-1);
                             <li>1st request: Http gets nearest server IP</li>
                             <li>Subsequent: nearest server IP</li>
                         </ul>
-                        <p>In 2013, Taobao survivied from public DNS server attack</p>
                         <p>
                             <a href="http://mp.weixin.qq.com/s?__biz=MzA3ODgyNzcwMw==&mid=201837080&idx=1&sn=b2a152b84df1c7dbd294ea66037cf262&scene=2&from=timeline&isappinstalled=0#rd">全局精确流量调度新思路-HttpDNS服务详解</a><br/>
                             <a href="http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=209805123&idx=1&sn=ced8d67c3e2cc3ca38ef722949fa21f8&scene=2&srcid=WNjSToklLOOIrJ4xkgUA&from=timeline&isappinstalled=0#rd">App域名劫持之DNS高可用 - 开源版HttpDNS方案详解</a>
@@ -636,7 +635,7 @@ window.history.go(-1);
                     </section>
                     <section id="break-ic1">
                         <h2>Inline Caching can be easily broken</h2>
-                        <pre><code class="javascript" data-trim contenteditable>
+                        <pre><code class="javascript" style="padding:1em" data-trim contenteditable>
 function addTwoThings(thing1, thing2) {
     return thing1 + thing2;
 }
@@ -644,8 +643,9 @@ function addTwoThings(thing1, thing2) {
 addTwoThings(1, 2);
 addTwoThings(100, 200); /* fast */
 addTwoThings('a', 'b'); /* slow */
-
-
+                        </code></pre>
+                        <pre>
+                            <code class="javascript" style="padding:1em" data-trim contenteditable>
 function Dog(name) {
     this.name = name;
 }
@@ -738,7 +738,7 @@ for(var i=0,l=elements.length; i&lt;l; i++) {
                     <section id="http2-is-here">
                         <h2>Prepare for HTTP/2</h2>
                         <p>
-                            <a href="http://httpwg.github.io/specs/rfc7540.html">IETF RFC7540</a>
+                            <a href="http://httpwg.github.io/specs/rfc7540.html">IETF RFC 7540</a>
                         </p>
                         <img data-src="images/http2-chrome.png" alt="HTTP2 Chrome net-internals" />
                     </section>
